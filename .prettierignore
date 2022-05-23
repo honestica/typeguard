@@ -1,0 +1,48 @@
+# Ignore folders #
+##################
+node_modules
+reports/
+coverage/
+build/
+dist/
+lib/
+stats/
+
+# Ignore files #
+################
+*.map
+*.ico
+*.eot
+*.svg
+*.ttf
+*.woff
+*.woff2
+*.png
+*.jpeg
+*.webp
+*.webm
+*.log
+*.gif
+
+# Ignore config files #
+#######################
+.forestadmin-schema.json
+*.properties
+*.config
+*.component
+.editorconfig
+.gitignore
+.npmrc
+.stylelintignore
+.stylelintrc
+.prettierignore
+.eslintignore
+.gitkeep
+.browserslistrc
+browserslist
+package-lock.json
+yarn.lock
+
+# Ignore generated files #
+##########################
+CHANGELOG.md

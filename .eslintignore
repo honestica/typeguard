@@ -1,0 +1,22 @@
+# Ignore folders #
+##################
+/node_modules/*
+/dist/*
+/build/*
+/lib/*
+/coverage/*
+/reports/*
+/docs/*
+/documentations/*
+/stats/*
+/cypress/screenshots/*
+/cypress/videos/*
+/cypress/downloads/*
+
+# Ignore files #
+################
+.DS_Store
+yarn.lock
+package-lock.json
+tsconfig.json
+tsconfig.*.json

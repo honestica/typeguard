@@ -1,0 +1,33 @@
+# http://editorconfig.org
+# Read the link above to understand this file
+# https://editorconfig.org/#download
+# Please install the plugin in your IDE by following the link above.
+# ------------------------------------------------------------------
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[{Dockerfile,Dockerfile.template,Dockerfile.sample,Dockerfile.example}]
+indent_style = space
+indent_size = 4
+
+# Makefiles always use tabs for indentation
+[Makefile]
+indent_style = tab
+
+# Batch files use tabs for indentation
+[*.bat]
+indent_style = tab
+
+[*.sh]
+indent_style = tab
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
