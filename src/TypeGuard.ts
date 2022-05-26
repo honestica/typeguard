@@ -1,86 +1,126 @@
-class TypeGuard {
-  public static IsDefined<Type = unknown>(value: Type): value is NonNullable<Type> {
-    return value !== undefined && value !== null;
-  }
+import type {
+	ObjectWithNullableProperty,
+	ObjectWithProperty,
+	PopulatedArray,
+	ArrayConstraints
+} from "./Types.js";
 
-  public static IsBoolean(value: unknown): value is boolean {
-    return typeof value === 'boolean';
-  }
+class TypeGuard
+{
+	public static IsDefined<Type>(value: Type): value is NonNullable<Type>
+	{
+		return (value !== undefined) && (value !== null) && !Number.isNaN(value);
+	}
 
-  public static IsString(value: unknown): value is string {
-    return typeof value === 'string';
-  }
+	public static IsBoolean(value: unknown): value is boolean
+	{
+		return (typeof value === "boolean");
+	}
 
-  public static IsNumber(value: unknown): value is number {
-    return typeof value === 'number';
-  }
+	public static IsNumber(value: unknown): value is number
+	{
+		return typeof value === "number" && !Number.isNaN(value);
+	}
 
-  public static IsArray<Type = unknown>(value: unknown): value is Array<Type> {
-    return Array.isArray(value);
-  }
+	public static IsInteger(value: unknown): value is number
+	{
+		return Number.isSafeInteger(value);
+	}
 
-  /**
-   * IsArrayString
-   */
-  public static IsArrayString(value: unknown): value is Array<string> {
-    if (!TypeGuard.IsArray(value)) {
-      return false;
-    }
+	public static IsFiniteNumber(value: unknown): value is number
+	{
+		return Number.isFinite(value);
+	}
 
-    for (const element of value) {
-      if (!TypeGuard.IsString(element)) {
-        return false;
-      }
-    }
+	public static IsString(value: unknown): value is string
+	{
+		return (typeof value === "string");
+	}
 
-    return true;
-  }
+	public static IsArray<Type>(value: unknown, constraints?: ArrayConstraints<Type>): value is Array<Type>
+	{
+		if (!Array.isArray(value))
+		{
+			return false;
+		}
 
-  public static IsRecord<KeyType extends string | number | symbol = string>(
-    value: unknown,
-  ): value is Record<KeyType, unknown> {
-    return typeof value === 'object' && value !== null;
-  }
+		if (constraints === undefined)
+		{
+			return true;
+		}
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  public static IsObject(value: unknown): value is object {
-    return typeof value === 'object' && value !== null;
-  }
+		if (
+			constraints.minLength !== undefined
+			&&
+			value.length < constraints.minLength
+		)
+		{
+			return false;
+		}
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  public static HasProperty<KeyName extends string>(
-    value: object,
-    property: KeyName,
-  ): value is { [property in KeyName]: unknown } {
-    return property in value;
-  }
+		if (
+			constraints.itemGuard !== undefined
+			&&
+			!value.every(constraints.itemGuard)
+		)
+		{
+			return false;
+		}
 
-  /**
-   * GetRealType
-   */
-  public static GetRealType(value: unknown): string {
-    if (value === undefined) {
-      return 'undefined';
-    }
+		return true;
+	}
 
-    if (value === null) {
-      return 'null';
-    }
+	public static IsPopulatedArray<Type>(value: unknown, constraints?: ArrayConstraints<Type>): value is PopulatedArray<Type>
+	{
+		if (constraints === undefined)
+		{
+			return TypeGuard.IsArray(value, { minLength: 1 });
+		}
 
-    if (TypeGuard.IsObject(value) && TypeGuard.HasProperty(value, '__proto__') && TypeGuard.IsObject(value.__proto__) && TypeGuard.HasProperty(value.__proto__, 'constructor') && TypeGuard.IsObject(value.__proto__.constructor) && TypeGuard.HasProperty(value.__proto__.constructor, 'name') && TypeGuard.IsString(value.__proto__.constructor.name)) {
-      return value.__proto__.constructor.name;
-    }
+		return TypeGuard.IsArray(value, { minLength: 1, ...constraints });
+	}
 
-    return 'unknown';
-  }
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	public static IsFunction(value: unknown): value is Function
+	{
+		return typeof value === "function";
+	}
 
-  /**
-   * HasDefinedProperty
-   */
-  public static HasDefinedProperty<O extends object, K extends string>(value: O, property: K): value is O & { [property in K]: K extends keyof O ? NonNullable<O>[K] : unknown } {
-    // @ts-expect-error
-    return property in value && TypeGuard.IsDefined(value[property]);    
-  }
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	public static IsCallable(value: unknown): value is Function
+	{
+		return (typeof value === "function") && (value.prototype === undefined);
+	}
+
+	public static IsRecord<KeyType extends number|string|symbol = string>(value: unknown): value is Record<KeyType, unknown>
+	{
+		if (!TypeGuard.IsObject(value))
+		{
+			return false;
+		}
+
+		const PROTO = Object.getPrototypeOf(value);
+
+		return (PROTO === null || PROTO === Object.prototype);
+	}
+
+	// eslint-disable-next-line @typescript-eslint/ban-types
+	public static IsObject(value: unknown): value is object
+	{
+		return (typeof value === "object") && (value !== null);
+	}
+
+	// eslint-disable-next-line @typescript-eslint/no-shadow
+	public static HasNullableProperty<O extends object, K extends string>(value: O, property: K): value is ObjectWithNullableProperty<O, K>
+	{
+		return property in value;
+	}
+
+	// eslint-disable-next-line @typescript-eslint/no-shadow
+	public static HasProperty<O extends object, K extends string>(value: O, property: K): value is ObjectWithProperty<O, K>
+	{
+		return TypeGuard.HasNullableProperty(value, property) && TypeGuard.IsDefined(value[property]);
+	}
 }
 
 export { TypeGuard };
