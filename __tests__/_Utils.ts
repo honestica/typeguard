@@ -30,7 +30,15 @@ class DummyClass
 	public async asyncMethod(): Promise<void> {}
 }
 
+// @ts-expect-error Old style class
+const OldDummyClass: { new(): OldDummyClass, Method: Function, AsyncMethod: Function } = function OldDummyClass() {};
+OldDummyClass.Method = function (): void {};
+OldDummyClass.AsyncMethod = async function (): Promise<void> {};
+OldDummyClass.prototype.method = function (): void {};
+OldDummyClass.prototype.asyncMethod = async function (): Promise<void> {};
+
 const DUMMY = new DummyClass();
+const OLD_DUMMY = new OldDummyClass();
 
 function expandTypes(types: Array<BaseType|CompositeType>): Array<BaseType>
 {
@@ -150,7 +158,9 @@ function getValuesForType(type: BaseType): Array<any>
 		case BaseType.INSTANTIATED:
 
 			return [
-				new Date(),
+				DUMMY,
+				OLD_DUMMY,
+				new (class {})(),
 			];
 
 		case BaseType.CALLABLE:
@@ -162,13 +172,19 @@ function getValuesForType(type: BaseType): Array<any>
 				DummyClass.AsyncMethod,
 				DUMMY.method,
 				DUMMY.asyncMethod,
+				OldDummyClass.AsyncMethod,
+				OLD_DUMMY.asyncMethod,
 			];
 
 		case BaseType.CONSTRUCTIBLE:
 
 			return [
+				class {},
 				function () {},
-				Date,
+				DummyClass,
+				OldDummyClass,
+				OldDummyClass.Method,
+				OLD_DUMMY.method,
 			];
 	}
 }
@@ -207,4 +223,11 @@ function getInvertedValues(...excluded_types: Array<BaseType|CompositeType>): Ar
 	return getValues(...INCLUDED_TYPES);
 }
 
-export { BaseType, CompositeType, getValues, getInvertedValues };
+export {
+	BaseType,
+	CompositeType,
+	getValues,
+	getInvertedValues,
+	DummyClass,
+	OldDummyClass,
+};

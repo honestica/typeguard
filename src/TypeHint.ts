@@ -122,6 +122,11 @@ class TypeHint
 				return "anonymous object";
 			}
 
+			if (PROTO.constructor.name === "")
+			{
+				return "object anonymous class";
+			}
+
 			return `object ${PROTO.constructor.name}`;
 		}
 

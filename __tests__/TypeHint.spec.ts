@@ -1,6 +1,9 @@
 import { expect } from "chai";
-import { BaseType, CompositeType, getValues } from "./_Utils.js";
+import { BaseType, CompositeType, getValues, DummyClass, OldDummyClass } from "./_Utils.js";
 import { TypeHint } from "../src/TypeHint.js";
+
+const DUMMY = new DummyClass();
+const OLD_DUMMY = new OldDummyClass();
 
 describe(
 	"TypeHint",
@@ -105,7 +108,8 @@ describe(
 					{
 						const VALUES = [
 							class {},
-							Date,
+							DummyClass,
+							OldDummyClass,
 						];
 
 						for (const value of VALUES)
@@ -122,14 +126,17 @@ describe(
 						function* generator1() { yield 1; }
 						function *generator2() { yield 1; }
 						function*generator3() { yield 1; }
+						function * generator4() { yield 1; }
 
 						const VALUES = [
 							generator1,
 							generator2,
 							generator3,
+							generator4,
 							function*() { yield 1; },
 							function *() { yield 1; },
 							function* () { yield 1; },
+							function * () { yield 1; },
 						];
 
 						for (const value of VALUES)
@@ -143,21 +150,19 @@ describe(
 					`should return "function" when given a function or method`,
 					() =>
 					{
-						class Test
-						{
-							public static Method(): void {}
-							public static async AsyncMethod(): Promise<void> {}
-						}
-
 						const VALUES = [
 							function () {},
 							async function () {},
 							() => {},
 							async () => {},
-							Test.Method,
-							Test.AsyncMethod,
-							Promise.all,
-							[].map,
+							DummyClass.Method,
+							DummyClass.AsyncMethod,
+							DUMMY.method,
+							DUMMY.asyncMethod,
+							OldDummyClass.Method,
+							OldDummyClass.AsyncMethod,
+							OLD_DUMMY.method,
+							OLD_DUMMY.asyncMethod,
 						];
 
 						for (const value of VALUES)
@@ -281,10 +286,8 @@ describe(
 					`should return "class Name" when given a class`,
 					() =>
 					{
-						function Alpha() {}
-						class Beta {}
-						expect(TypeHint.GetDetailedType(Alpha)).to.equal("class Alpha");
-						expect(TypeHint.GetDetailedType(Beta)).to.equal("class Beta");
+						expect(TypeHint.GetDetailedType(DummyClass)).to.equal("class DummyClass");
+						expect(TypeHint.GetDetailedType(OldDummyClass)).to.equal("class OldDummyClass");
 					}
 				);
 
@@ -296,6 +299,10 @@ describe(
 						expect(TypeHint.GetDetailedType(async () => {})).to.equal("anonymous function");
 						expect(TypeHint.GetDetailedType(function () {})).to.equal("anonymous function");
 						expect(TypeHint.GetDetailedType(async function () {})).to.equal("anonymous function");
+						expect(TypeHint.GetDetailedType(OldDummyClass.Method)).to.equal("anonymous function");
+						expect(TypeHint.GetDetailedType(OldDummyClass.AsyncMethod)).to.equal("anonymous function");
+						expect(TypeHint.GetDetailedType(OLD_DUMMY.method)).to.equal("anonymous function");
+						expect(TypeHint.GetDetailedType(OLD_DUMMY.asyncMethod)).to.equal("anonymous function");
 					}
 				);
 
@@ -305,10 +312,11 @@ describe(
 					{
 						function alpha() {}
 						async function beta() {}
+
 						expect(TypeHint.GetDetailedType(alpha)).to.equal("function alpha");
 						expect(TypeHint.GetDetailedType(beta)).to.equal("function beta");
 						// Not using class notation
-						expect(TypeHint.GetDetailedType(Promise.all)).to.equal("function all");
+						expect(TypeHint.GetDetailedType(Array.from)).to.equal("function from");
 						expect(TypeHint.GetDetailedType([].map)).to.equal("function map");
 					}
 				);
@@ -320,6 +328,7 @@ describe(
 						expect(TypeHint.GetDetailedType(function*() { yield 1; })).to.equal("anonymous generator");
 						expect(TypeHint.GetDetailedType(function *() { yield 1; })).to.equal("anonymous generator");
 						expect(TypeHint.GetDetailedType(function* () { yield 1; })).to.equal("anonymous generator");
+						expect(TypeHint.GetDetailedType(function * () { yield 1; })).to.equal("anonymous generator");
 					}
 				);
 
@@ -330,10 +339,12 @@ describe(
 						function* generator1() { yield 1; }
 						function *generator2() { yield 1; }
 						function*generator3() { yield 1; }
+						function * generator4() { yield 1; }
 
 						expect(TypeHint.GetDetailedType(generator1)).to.equal("generator generator1");
 						expect(TypeHint.GetDetailedType(generator2)).to.equal("generator generator2");
 						expect(TypeHint.GetDetailedType(generator3)).to.equal("generator generator3");
+						expect(TypeHint.GetDetailedType(generator4)).to.equal("generator generator4");
 					}
 				);
 
@@ -341,15 +352,6 @@ describe(
 					`should return "method name" when given a method`,
 					() =>
 					{
-						class DummyClass
-						{
-							public static Method(): void {}
-							public static async AsyncMethod(): Promise<void> {}
-							public method(): void {}
-							public async asyncMethod(): Promise<void> {}
-						}
-
-						const DUMMY = new DummyClass();
 
 						expect(TypeHint.GetDetailedType(DummyClass.Method)).to.equal("method Method");
 						expect(TypeHint.GetDetailedType(DummyClass.AsyncMethod)).to.equal("method AsyncMethod");
@@ -372,10 +374,18 @@ describe(
 				);
 
 				it(
+					`should return "object anonymous class" when given an instance of a class expression`,
+					() =>
+					{
+						expect(TypeHint.GetDetailedType(new (class {})())).to.equal("object anonymous class");
+					}
+				);
+
+				it(
 					`should return "object ClassName" when given an instantiated object`,
 					() =>
 					{
-						expect(TypeHint.GetDetailedType(new Date())).to.equal("object Date");
+						expect(TypeHint.GetDetailedType(DUMMY)).to.equal("object DummyClass");
 					}
 				);
 			}
