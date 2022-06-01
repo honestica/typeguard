@@ -22,6 +22,16 @@ const enum CompositeType
 	OBJECT = "object",
 }
 
+class DummyClass
+{
+	public static Method(): void {}
+	public static async AsyncMethod(): Promise<void> {}
+	public method(): void {}
+	public async asyncMethod(): Promise<void> {}
+}
+
+const DUMMY = new DummyClass();
+
 function expandTypes(types: Array<BaseType|CompositeType>): Array<BaseType>
 {
 	const TYPES: Array<BaseType> = [];
@@ -114,7 +124,13 @@ function getValuesForType(type: BaseType): Array<any>
 
 		case BaseType.SYMBOL:
 
-			return [Symbol()];
+			return [
+				Symbol(),
+				Symbol(42),
+				Symbol("local"),
+				Symbol.for("global"),
+				Symbol.iterator,
+			];
 
 		case BaseType.ARRAY:
 
@@ -141,6 +157,11 @@ function getValuesForType(type: BaseType): Array<any>
 
 			return [
 				() => {},
+				async function () {},
+				DummyClass.Method,
+				DummyClass.AsyncMethod,
+				DUMMY.method,
+				DUMMY.asyncMethod,
 			];
 
 		case BaseType.CONSTRUCTIBLE:

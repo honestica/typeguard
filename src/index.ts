@@ -7,3 +7,4 @@ export type {
 
 export { Assertion } from "./Assertion.js";
 export { TypeGuard } from "./TypeGuard.js";
+export { TypeHint } from "./TypeHint.js";
