@@ -8,6 +8,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
+		"build": "tsc",
 		"test": "yarn test:unit",
 		"test:unit": "mocha",
 		"lint": "yarn run eslint"
@@ -34,6 +35,6 @@
 		"eslint-plugin-sonarjs": "^0.13.0",
 		"eslint-plugin-unused-imports": "^2.0.0",
 		"mocha": "^10.0.0",
-		"typescript": "^4.6.4"
+		"typescript": "^4.7.2"
 	}
 }
