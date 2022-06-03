@@ -5,7 +5,7 @@ class TypeHint
 		if (typeof value === "function")
 		{
 			// This is purely an optimisation, so mutation testing is disabled.
-			// Stryker disable next-line EqualityOperator,ConditionalExpression
+			// Stryker disable next-line ConditionalExpression
 			if (value.prototype === undefined)
 			// Stryker disable next-line BlockStatement
 			{
@@ -62,7 +62,7 @@ class TypeHint
 			if (value.name === "")
 			{
 				// This is purely an optimisation, so mutation testing is disabled.
-				// Stryker disable next-line EqualityOperator,ConditionalExpression
+				// Stryker disable next-line ConditionalExpression
 				if (value.prototype === undefined)
 				// Stryker disable next-line BlockStatement
 				{
