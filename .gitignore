@@ -6,5 +6,5 @@ build/
 yarn-error.log
 
 # stryker directories
-stryker-tmp
+.stryker-tmp
 reports
