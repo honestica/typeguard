@@ -4,3 +4,7 @@ build/
 .vscode/
 
 yarn-error.log
+
+# stryker directories
+stryker-tmp
+reports

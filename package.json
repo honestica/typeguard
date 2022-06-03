@@ -11,9 +11,12 @@
 		"build": "tsc",
 		"test": "yarn test:unit",
 		"test:unit": "mocha",
+		"mutate": "npx stryker run",
 		"lint": "yarn run eslint"
 	},
 	"devDependencies": {
+		"@stryker-mutator/core": "^6.0.2",
+		"@stryker-mutator/mocha-runner": "^6.0.2",
 		"@types/chai": "^4.3.1",
 		"@types/expect": "^24.3.0",
 		"@types/mocha": "^9.1.1",
