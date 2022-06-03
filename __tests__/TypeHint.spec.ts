@@ -150,6 +150,23 @@ describe(
 					`should return "function" when given a function or method`,
 					() =>
 					{
+						function trapDummy()
+						{
+							function TrapDummyClass()
+							{
+
+							}
+
+							function* trapDummyGenerator()
+							{
+								yield 1;
+							}
+
+							//@ts-expect-error Old class notation
+							new TrapDummyClass();
+							trapDummyGenerator();
+						}
+
 						const VALUES = [
 							function () {},
 							async function () {},
@@ -163,6 +180,7 @@ describe(
 							OldDummyClass.AsyncMethod,
 							OLD_DUMMY.method,
 							OLD_DUMMY.asyncMethod,
+							trapDummy
 						];
 
 						for (const value of VALUES)
@@ -295,14 +313,36 @@ describe(
 					`should return "anonymous function" when given an anonymous function`,
 					() =>
 					{
-						expect(TypeHint.GetDetailedType(() => {})).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(async () => {})).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(function () {})).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(async function () {})).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(OldDummyClass.Method)).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(OldDummyClass.AsyncMethod)).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(OLD_DUMMY.method)).to.equal("anonymous function");
-						expect(TypeHint.GetDetailedType(OLD_DUMMY.asyncMethod)).to.equal("anonymous function");
+						const VALUES = [() => {},
+							async () => {},
+							function () {},
+							async function () {},
+							OldDummyClass.Method,
+							OldDummyClass.AsyncMethod,
+							OLD_DUMMY.method,
+							OLD_DUMMY.asyncMethod,
+							function ()
+							{
+								function TrapDummyClass()
+								{
+
+								}
+
+								function* trapDummyGenerator()
+								{
+									yield 1;
+								}
+
+								//@ts-expect-error Old class notation
+								new TrapDummyClass();
+								trapDummyGenerator();
+							}
+						];
+
+						for (const value of VALUES)
+						{
+							expect(TypeHint.GetDetailedType(value)).to.equal("anonymous function");
+						}
 					}
 				);
 
@@ -313,8 +353,26 @@ describe(
 						function alpha() {}
 						async function beta() {}
 
+						function trapDummy()
+						{
+							function TrapDummyClass()
+							{
+
+							}
+
+							function* trapDummyGenerator()
+							{
+								yield 1;
+							}
+
+							//@ts-expect-error Old class notation
+							new TrapDummyClass();
+							trapDummyGenerator();
+						}
+
 						expect(TypeHint.GetDetailedType(alpha)).to.equal("function alpha");
 						expect(TypeHint.GetDetailedType(beta)).to.equal("function beta");
+						expect(TypeHint.GetDetailedType(trapDummy)).to.equal("function trapDummy");
 						// Not using class notation
 						expect(TypeHint.GetDetailedType(Array.from)).to.equal("function from");
 						expect(TypeHint.GetDetailedType([].map)).to.equal("function map");
@@ -325,10 +383,17 @@ describe(
 					`should return "anonymous generator" when given an anonymous generator`,
 					() =>
 					{
-						expect(TypeHint.GetDetailedType(function*() { yield 1; })).to.equal("anonymous generator");
-						expect(TypeHint.GetDetailedType(function *() { yield 1; })).to.equal("anonymous generator");
-						expect(TypeHint.GetDetailedType(function* () { yield 1; })).to.equal("anonymous generator");
-						expect(TypeHint.GetDetailedType(function * () { yield 1; })).to.equal("anonymous generator");
+						const VALUES = [
+							function*() { yield 1; },
+							function *() { yield 1; },
+							function* () { yield 1; },
+							function * () { yield 1; },
+						];
+
+						for (const value of VALUES)
+						{
+							expect(TypeHint.GetDetailedType(value)).to.equal("anonymous generator");
+						}
 					}
 				);
 

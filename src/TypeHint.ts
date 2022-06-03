@@ -4,7 +4,10 @@ class TypeHint
 	{
 		if (typeof value === "function")
 		{
+			// This is purely an optimisation, so mutation testing is disabled.
+			// Stryker disable next-line EqualityOperator,ConditionalExpression
 			if (value.prototype === undefined)
+			// Stryker disable next-line BlockStatement
 			{
 				return "function";
 			}
@@ -21,7 +24,7 @@ class TypeHint
 				return "class";
 			}
 
-			if (/function ?\*/.test(CODE))
+			if (/^function ?\*/.test(CODE))
 			{
 				return "generator";
 			}
@@ -58,7 +61,10 @@ class TypeHint
 		{
 			if (value.name === "")
 			{
+				// This is purely an optimisation, so mutation testing is disabled.
+				// Stryker disable next-line EqualityOperator,ConditionalExpression
 				if (value.prototype === undefined)
+				// Stryker disable next-line BlockStatement
 				{
 					return "anonymous function";
 				}
@@ -70,7 +76,7 @@ class TypeHint
 					return "anonymous class";
 				}
 
-				if (/function ?\*/.test(CODE))
+				if (/^function ?\*/.test(CODE))
 				{
 					return "anonymous generator";
 				}
@@ -85,14 +91,14 @@ class TypeHint
 				return `class ${value.name}`;
 			}
 
-			if (/function ?\*/.test(CODE))
-			{
-				return `generator ${value.name}`;
-			}
-
 			if (/^function [A-Z]/.test(CODE))
 			{
 				return `class ${value.name}`;
+			}
+
+			if (/^function ?\*/.test(CODE))
+			{
+				return `generator ${value.name}`;
 			}
 
 			if (/^(async )?\w+\(/.test(CODE))
