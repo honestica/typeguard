@@ -10,5 +10,7 @@
 	"testRunner": "mocha",
 	"coverageAnalysis": "perTest",
 	"buildCommand": "tsc",
-	"ignoreStatic": true
+	"ignoreStatic": true,
+	"checkers": ["typescript"],
+	"tsconfigFile": "tsconfig.stryker.json"
 }
