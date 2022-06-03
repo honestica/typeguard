@@ -72,11 +72,6 @@ class TypeGuard
 
 	public static IsPopulatedArray<Type>(value: unknown, constraints?: ArrayConstraints<Type>): value is PopulatedArray<Type>
 	{
-		if (constraints === undefined)
-		{
-			return TypeGuard.IsArray(value, { minLength: 1 });
-		}
-
 		return TypeGuard.IsArray(value, { minLength: 1, ...constraints });
 	}
 

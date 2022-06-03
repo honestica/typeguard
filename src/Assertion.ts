@@ -94,12 +94,6 @@ class Assertion
 
 	public static IsPopulatedArray<Type>(value: unknown, constraints?: ArrayConstraints<Type>): asserts value is PopulatedArray<Type>
 	{
-		if (constraints === undefined)
-		{
-			Assertion.IsArray(value, { minLength: 1 });
-			return;
-		}
-
 		Assertion.IsArray(value, { minLength: 1, ...constraints });
 	}
 

@@ -18,7 +18,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsDefined(value); }).to.throw();
+							expect(() => { Assertion.IsDefined(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -63,7 +63,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsBoolean(value); }).to.throw();
+							expect(() => { Assertion.IsBoolean(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -95,7 +95,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsNumber(value); }).to.throw();
+							expect(() => { Assertion.IsNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -127,7 +127,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw();
+							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -140,7 +140,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw();
+							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -172,7 +172,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsInteger(value); }).to.throw();
+							expect(() => { Assertion.IsInteger(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -185,7 +185,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsInteger(value); }).to.throw();
+							expect(() => { Assertion.IsInteger(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -217,7 +217,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsString(value); }).to.throw();
+							expect(() => { Assertion.IsString(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -249,7 +249,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsArray(value); }).to.throw();
+							expect(() => { Assertion.IsArray(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -267,8 +267,8 @@ describe(
 					"should throw when given an array with a length below the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsArray([], { minLength: 1 }); }).to.throw();
-						expect(() => { Assertion.IsArray([1, 2, 3], { minLength: 4 }); }).to.throw();
+						expect(() => { Assertion.IsArray([], { minLength: 1 }); }).to.throw(/^value /);
+						expect(() => { Assertion.IsArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
 					}
 				);
 
@@ -293,7 +293,7 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw();
+						expect(() => { Assertion.IsArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
 					}
 				);
 			}
@@ -307,7 +307,7 @@ describe(
 					"should throw when given an empty array",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([]); }).to.throw();
+						expect(() => { Assertion.IsPopulatedArray([]); }).to.throw(/^value /);
 					}
 				);
 
@@ -327,7 +327,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsPopulatedArray(value); }).to.throw();
+							expect(() => { Assertion.IsPopulatedArray(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -345,7 +345,7 @@ describe(
 					"should throw when given an array with a length below the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { minLength: 4 }); }).to.throw();
+						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
 					}
 				);
 
@@ -369,7 +369,7 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw();
+						expect(() => { Assertion.IsPopulatedArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
 					}
 				);
 			}
@@ -400,7 +400,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFunction(value); }).to.throw();
+							expect(() => { Assertion.IsFunction(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -432,7 +432,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsCallable(value); }).to.throw();
+							expect(() => { Assertion.IsCallable(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -464,7 +464,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.throw();
+							expect(() => { Assertion.IsRecord(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -477,7 +477,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.throw();
+							expect(() => { Assertion.IsRecord(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -509,7 +509,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.throw();
+							expect(() => { Assertion.IsObject(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -524,7 +524,7 @@ describe(
 					"should throw when given an object without the property",
 					() =>
 					{
-						expect(() => { Assertion.HasNullableProperty({}, "answer"); }).to.throw();
+						expect(() => { Assertion.HasNullableProperty({}, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -546,7 +546,7 @@ describe(
 					"should throw when given an object without the property",
 					() =>
 					{
-						expect(() => { Assertion.HasProperty({}, "answer"); }).to.throw();
+						expect(() => { Assertion.HasProperty({}, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -554,7 +554,7 @@ describe(
 					"should throw when given an object with the property, but the value is nullish",
 					() =>
 					{
-						expect(() => { Assertion.HasProperty({ answer: undefined }, "answer"); }).to.throw();
+						expect(() => { Assertion.HasProperty({ answer: undefined }, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -567,6 +567,5 @@ describe(
 				);
 			}
 		);
-
 	}
 );

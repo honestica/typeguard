@@ -16,12 +16,12 @@ class TypeHint
 				return "class";
 			}
 
-			if (/^function +[A-Z]/.test(CODE))
+			if (/^function [A-Z]/.test(CODE))
 			{
 				return "class";
 			}
 
-			if (/function *\*/.test(CODE))
+			if (/function ?\*/.test(CODE))
 			{
 				return "generator";
 			}
@@ -70,7 +70,7 @@ class TypeHint
 					return "anonymous class";
 				}
 
-				if (/function *\*/.test(CODE))
+				if (/function ?\*/.test(CODE))
 				{
 					return "anonymous generator";
 				}
@@ -85,17 +85,17 @@ class TypeHint
 				return `class ${value.name}`;
 			}
 
-			if (/function *\*/.test(CODE))
+			if (/function ?\*/.test(CODE))
 			{
 				return `generator ${value.name}`;
 			}
 
-			if (/^function +[A-Z]/.test(CODE))
+			if (/^function [A-Z]/.test(CODE))
 			{
 				return `class ${value.name}`;
 			}
 
-			if (/^(async +)?\w+\(/.test(CODE))
+			if (/^(async )?\w+\(/.test(CODE))
 			{
 				return `method ${value.name}`;
 			}
@@ -117,7 +117,7 @@ class TypeHint
 
 			const PROTO = Object.getPrototypeOf(value);
 
-			if (PROTO === null || PROTO.constructor === Object)
+			if (PROTO === null || PROTO === Object.prototype)
 			{
 				return "anonymous object";
 			}
