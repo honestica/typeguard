@@ -9,7 +9,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "yarn test:unit",
-		"test:unit": "mocha build/__tests__/**/*.spec.js",
+		"test:unit": "mocha",
 		"lint": "yarn run eslint"
 	},
 	"devDependencies": {
