@@ -163,6 +163,27 @@ class TypeHint
 
 		return typeof value;
 	}
+
+	public static GetName(value: unknown): string|undefined
+	{
+		if (typeof value === "function")
+		{
+			return value.name;
+		}
+		else if (typeof value === "object" && value !== null)
+		{
+			const PROTO = Object.getPrototypeOf(value);
+
+			if (PROTO === null)
+			{
+				return "";
+			}
+
+			return PROTO.constructor.name;
+		}
+
+		return undefined;
+	}
 }
 
 export { TypeHint };

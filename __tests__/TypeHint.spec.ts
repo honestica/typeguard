@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { BaseType, CompositeType, getValues, DummyClass, OldDummyClass } from "./_Utils.js";
+import { BaseType, CompositeType, getValues, getInvertedValues, DummyClass, OldDummyClass } from "./_Utils.js";
 import { TypeHint } from "../src/TypeHint.js";
 
 const DUMMY = new DummyClass();
@@ -162,7 +162,7 @@ describe(
 								yield 1;
 							}
 
-							//@ts-expect-error Old class notation
+							// @ts-expect-error Old class notation
 							new TrapDummyClass();
 							trapDummyGenerator();
 						}
@@ -333,7 +333,7 @@ describe(
 									yield 1;
 								}
 
-								//@ts-expect-error Old class notation
+								// @ts-expect-error Old class notation
 								new TrapDummyClass();
 								trapDummyGenerator();
 							}
@@ -365,7 +365,7 @@ describe(
 								yield 1;
 							}
 
-							//@ts-expect-error Old class notation
+							// @ts-expect-error Old class notation
 							new TrapDummyClass();
 							trapDummyGenerator();
 						}
@@ -442,7 +442,16 @@ describe(
 					`should return "object anonymous class" when given an instance of a class expression`,
 					() =>
 					{
-						expect(TypeHint.GetDetailedType(new (class {})())).to.equal("object anonymous class");
+						const VALUES = [
+							// @ts-expect-error Old class notation
+							new (function() {})(),
+							new (class {})(),
+						];
+
+						for (const value of VALUES)
+						{
+							expect(TypeHint.GetDetailedType(value)).to.equal("object anonymous class");
+						}
 					}
 				);
 
@@ -451,6 +460,65 @@ describe(
 					() =>
 					{
 						expect(TypeHint.GetDetailedType(DUMMY)).to.equal("object DummyClass");
+					}
+				);
+			}
+		);
+
+		describe(
+			"GetName",
+			() =>
+			{
+				it(
+					"should return the name of a named function or class, or an object with a named constructor",
+					() =>
+					{
+						function dummyFunction() {}
+						function* dummyGenerator() { yield 1; }
+
+						expect(TypeHint.GetName([])).to.equal("Array");
+						expect(TypeHint.GetName({})).to.equal("Object");
+						expect(TypeHint.GetName(DUMMY)).to.equal("DummyClass");
+						expect(TypeHint.GetName(dummyFunction)).to.equal("dummyFunction");
+						expect(TypeHint.GetName(dummyGenerator)).to.equal("dummyGenerator");
+						expect(TypeHint.GetName(DummyClass.Method)).to.equal("Method");
+						expect(TypeHint.GetName(DummyClass)).to.equal("DummyClass");
+						expect(TypeHint.GetName(OldDummyClass)).to.equal("OldDummyClass");
+					}
+				);
+
+				it(
+					"should return an empty string for anonymous function or class, or an object with anonymous constructor",
+					() =>
+					{
+						const VALUES = [
+							// @ts-expect-error Old class notation
+							new (function() {})(),
+							Object.create(null),
+							new (class {})(),
+							() => {},
+							function () {},
+							function* () { yield 1; },
+							class {}
+						];
+
+						for (const value of VALUES)
+						{
+							expect(TypeHint.GetName(value)).to.equal("");
+						}
+					}
+				);
+
+				it(
+					"should return undefined when given anything else",
+					() =>
+					{
+						const VALUES = getInvertedValues(CompositeType.FUNCTION_CLASS, CompositeType.OBJECT);
+
+						for (const value of VALUES)
+						{
+							expect(TypeHint.GetName(value)).to.equal(undefined);
+						}
 					}
 				);
 			}
