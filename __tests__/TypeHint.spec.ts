@@ -51,7 +51,7 @@ describe(
 				);
 
 				it(
-					`should return "number" when given a number`,
+					`should return "number (value)" when given a number`,
 					() =>
 					{
 						const VALUES = getValues(CompositeType.NUMBER);
@@ -253,12 +253,20 @@ describe(
 					`should return "number" when given a number`,
 					() =>
 					{
-						const VALUES = getValues(CompositeType.NUMBER);
-
-						for (const value of VALUES)
-						{
-							expect(TypeHint.GetDetailedType(value)).to.equal("number");
-						}
+						expect(TypeHint.GetDetailedType(0)).to.equal("number (0)");
+						expect(TypeHint.GetDetailedType(-0)).to.equal("number (0)");
+						expect(TypeHint.GetDetailedType(1)).to.equal("number (1)");
+						expect(TypeHint.GetDetailedType(-1)).to.equal("number (-1)");
+						expect(TypeHint.GetDetailedType(Number.MIN_SAFE_INTEGER + 4)).to.equal("number (-9007199254740987)");
+						expect(TypeHint.GetDetailedType(Number.MAX_SAFE_INTEGER - 4)).to.equal("number (9007199254740987)");
+						expect(TypeHint.GetDetailedType(Number.MIN_SAFE_INTEGER - 4)).to.equal("number (-9007199254740996)");
+						expect(TypeHint.GetDetailedType(Number.MAX_SAFE_INTEGER + 4)).to.equal("number (9007199254740996)");
+						expect(TypeHint.GetDetailedType(Number.MIN_VALUE)).to.equal("number (5e-324)");
+						expect(TypeHint.GetDetailedType(-Number.MIN_VALUE)).to.equal("number (-5e-324)");
+						expect(TypeHint.GetDetailedType(Number.MAX_VALUE)).to.equal("number (1.7976931348623157e+308)");
+						expect(TypeHint.GetDetailedType(-Number.MAX_VALUE)).to.equal("number (-1.7976931348623157e+308)");
+						expect(TypeHint.GetDetailedType(Number.POSITIVE_INFINITY)).to.equal("number (Infinity)");
+						expect(TypeHint.GetDetailedType(Number.NEGATIVE_INFINITY)).to.equal("number (-Infinity)");
 					}
 				);
 
@@ -470,15 +478,12 @@ describe(
 			() =>
 			{
 				it(
-					"should return the name of a named function or class, or an object with a named constructor",
+					"should return the name of a given function, generator function, method, or class",
 					() =>
 					{
 						function dummyFunction() {}
 						function* dummyGenerator() { yield 1; }
 
-						expect(TypeHint.GetName([])).to.equal("Array");
-						expect(TypeHint.GetName({})).to.equal("Object");
-						expect(TypeHint.GetName(DUMMY)).to.equal("DummyClass");
 						expect(TypeHint.GetName(dummyFunction)).to.equal("dummyFunction");
 						expect(TypeHint.GetName(dummyGenerator)).to.equal("dummyGenerator");
 						expect(TypeHint.GetName(DummyClass.Method)).to.equal("Method");
@@ -488,7 +493,17 @@ describe(
 				);
 
 				it(
-					"should return an empty string for anonymous function or class, or an object with anonymous constructor",
+					"should return the name of the constructor of a given object",
+					() =>
+					{
+						expect(TypeHint.GetName([])).to.equal("Array");
+						expect(TypeHint.GetName({})).to.equal("Object");
+						expect(TypeHint.GetName(DUMMY)).to.equal("DummyClass");
+					}
+				);
+
+				it(
+					"should return an empty string if the given value has no name",
 					() =>
 					{
 						const VALUES = [

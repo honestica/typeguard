@@ -14,12 +14,7 @@ class TypeHint
 
 			const CODE: string = value.toString();
 
-			if (CODE.startsWith("class "))
-			{
-				return "class";
-			}
-
-			if (/^function [A-Z]/.test(CODE))
+			if (CODE.startsWith("class ") || /^function [A-Z]/.test(CODE))
 			{
 				return "class";
 			}
@@ -86,12 +81,7 @@ class TypeHint
 
 			const CODE: string = value.toString();
 
-			if (CODE.startsWith("class "))
-			{
-				return `class ${value.name}`;
-			}
-
-			if (/^function [A-Z]/.test(CODE))
+			if (CODE.startsWith("class ") || /^function [A-Z]/.test(CODE))
 			{
 				return `class ${value.name}`;
 			}
@@ -151,6 +141,11 @@ class TypeHint
 			return "boolean (false)";
 		}
 
+		if (typeof value === "number")
+		{
+			return `number (${value.toString()})`;
+		}
+
 		if (typeof value === "string")
 		{
 			return `string (${value.length} characters)`;
@@ -158,7 +153,7 @@ class TypeHint
 
 		if (typeof value === "symbol")
 		{
-			return "symbol " + value.toString().slice(6);
+			return `symbol ${value.toString().slice(6)}`;
 		}
 
 		return typeof value;
