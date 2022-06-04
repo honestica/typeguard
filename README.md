@@ -1,5 +1,10 @@
 # Documentation
 
+- [TypeAssertion](#typeassertion)
+- [TypeGuard](#typeguard)
+- [TypeHint](#typehint)
+- [ValueGuard](#valueguard)
+
 ## TypeAssertion
 
 #### `static IsDefined(value: unknown): void`
