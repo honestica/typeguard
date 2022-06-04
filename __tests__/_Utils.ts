@@ -14,7 +14,7 @@ const enum BaseType
 	CONSTRUCTIBLE = "constructible",
 }
 
-const enum CompositeType
+const enum GroupType
 {
 	FUNCTION_CLASS = "function-class",
 	NUMBER = "number",
@@ -40,7 +40,7 @@ OldDummyClass.prototype.asyncMethod = async function (): Promise<void> {};
 const DUMMY = new DummyClass();
 const OLD_DUMMY = new OldDummyClass();
 
-function expandTypes(types: Array<BaseType|CompositeType>): Array<BaseType>
+function expandTypes(types: Array<BaseType|GroupType>): Array<BaseType>
 {
 	const TYPES: Array<BaseType> = [];
 
@@ -48,25 +48,25 @@ function expandTypes(types: Array<BaseType|CompositeType>): Array<BaseType>
 	{
 		switch (TYPE)
 		{
-			case CompositeType.NUMBER:
+			case GroupType.NUMBER:
 
 				TYPES.push(BaseType.INTEGER, BaseType.REAL, BaseType.INFINITY);
 
 			break;
 
-			case CompositeType.FINITE:
+			case GroupType.FINITE:
 
 				TYPES.push(BaseType.INTEGER, BaseType.REAL);
 
 			break;
 
-			case CompositeType.OBJECT:
+			case GroupType.OBJECT:
 
 				TYPES.push(BaseType.ARRAY, BaseType.RECORD, BaseType.INSTANTIATED);
 
 			break;
 
-			case CompositeType.FUNCTION_CLASS:
+			case GroupType.FUNCTION_CLASS:
 
 				TYPES.push(BaseType.CALLABLE, BaseType.CONSTRUCTIBLE);
 
@@ -189,12 +189,12 @@ function getValuesForType(type: BaseType): Array<any>
 	}
 }
 
-function getValues(...included_types: Array<BaseType|CompositeType>): Array<any>
+function getValues(...included_types: Array<BaseType|GroupType>): Array<any>
 {
 	return expandTypes(included_types).flatMap(getValuesForType);
 }
 
-function getInvertedValues(...excluded_types: Array<BaseType|CompositeType>): Array<any>
+function getInvertedValues(...excluded_types: Array<BaseType|GroupType>): Array<any>
 {
 	const ALL_TYPES: Array<BaseType> = [
 		BaseType.NULLISH,
@@ -225,7 +225,7 @@ function getInvertedValues(...excluded_types: Array<BaseType|CompositeType>): Ar
 
 export {
 	BaseType,
-	CompositeType,
+	GroupType,
 	getValues,
 	getInvertedValues,
 	DummyClass,

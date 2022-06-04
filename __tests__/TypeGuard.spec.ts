@@ -1,11 +1,43 @@
 import { expect } from "chai";
-import { BaseType, CompositeType, getValues, getInvertedValues } from "./_Utils.js";
+import { BaseType, GroupType, getValues, getInvertedValues } from "./_Utils.js";
 import { TypeGuard } from "../src/TypeGuard.js";
 
 describe(
 	"TypeGuard",
 	() =>
 	{
+		describe(
+			"IsPrimitive",
+			() =>
+			{
+				it(
+					"should return true when given a primitive value",
+					() =>
+					{
+						const VALUES = getInvertedValues(BaseType.SYMBOL, GroupType.OBJECT, GroupType.FUNCTION_CLASS);
+
+						for (const value of VALUES)
+						{
+							expect(TypeGuard.IsPrimitive(value)).to.be.true;
+						}
+					}
+				);
+
+				it(
+					"should return false when given a composite value",
+					() =>
+					{
+						const VALUES = getValues(BaseType.SYMBOL, GroupType.OBJECT, GroupType.FUNCTION_CLASS);
+
+						for (const value of VALUES)
+						{
+							expect(TypeGuard.IsPrimitive(value)).to.be.false;
+						}
+					}
+				);
+			}
+		);
+
 		describe(
 			"IsDefined",
 			() =>
@@ -78,7 +110,7 @@ describe(
 					"should return true when given a number",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.NUMBER);
+						const VALUES = getValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -91,7 +123,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -110,7 +142,7 @@ describe(
 					"should return true when given a real number",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.FINITE);
+						const VALUES = getValues(GroupType.FINITE);
 
 						for (const value of VALUES)
 						{
@@ -136,7 +168,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -181,7 +213,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -383,7 +415,7 @@ describe(
 					"should return true when given a function (arrow, regular, or constructor)",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.FUNCTION_CLASS);
+						const VALUES = getValues(GroupType.FUNCTION_CLASS);
 
 						for (const value of VALUES)
 						{
@@ -396,7 +428,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.FUNCTION_CLASS);
+						const VALUES = getInvertedValues(GroupType.FUNCTION_CLASS);
 
 						for (const value of VALUES)
 						{
@@ -473,7 +505,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.OBJECT);
+						const VALUES = getInvertedValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{
@@ -492,7 +524,7 @@ describe(
 					"should return true when given an object",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.OBJECT);
+						const VALUES = getValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{
@@ -505,7 +537,7 @@ describe(
 					"should return false when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.OBJECT);
+						const VALUES = getInvertedValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{

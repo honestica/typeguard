@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { BaseType, CompositeType, getValues, getInvertedValues } from "./_Utils.js";
+import { BaseType, GroupType, getValues, getInvertedValues } from "./_Utils.js";
 import { TypeAssertion } from "../src/TypeAssertion.js";
 
 describe(
@@ -78,7 +78,7 @@ describe(
 					"should return when given a number",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.NUMBER);
+						const VALUES = getValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -91,7 +91,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -110,7 +110,7 @@ describe(
 					"should return when given a real number",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.FINITE);
+						const VALUES = getValues(GroupType.FINITE);
 
 						for (const value of VALUES)
 						{
@@ -136,7 +136,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -181,7 +181,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.NUMBER);
+						const VALUES = getInvertedValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -383,7 +383,7 @@ describe(
 					"should return when given a function (arrow, regular, or constructor)",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.FUNCTION_CLASS);
+						const VALUES = getValues(GroupType.FUNCTION_CLASS);
 
 						for (const value of VALUES)
 						{
@@ -396,7 +396,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.FUNCTION_CLASS);
+						const VALUES = getInvertedValues(GroupType.FUNCTION_CLASS);
 
 						for (const value of VALUES)
 						{
@@ -473,7 +473,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.OBJECT);
+						const VALUES = getInvertedValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{
@@ -492,7 +492,7 @@ describe(
 					"should return when given an object",
 					() =>
 					{
-						const VALUES = getValues(CompositeType.OBJECT);
+						const VALUES = getValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{
@@ -505,7 +505,7 @@ describe(
 					"should throw when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.OBJECT);
+						const VALUES = getInvertedValues(GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{

@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import { BaseType, CompositeType, getValues, getInvertedValues, DummyClass, OldDummyClass } from "./_Utils.js";
+import { BaseType, GroupType, getValues, getInvertedValues, DummyClass, OldDummyClass } from "./_Utils.js";
 import { TypeHint } from "../src/TypeHint.js";
 
 const DUMMY = new DummyClass();
@@ -54,7 +54,7 @@ describe(
 					`should return "number (value)" when given a number`,
 					() =>
 					{
-						const VALUES = getValues(CompositeType.NUMBER);
+						const VALUES = getValues(GroupType.NUMBER);
 
 						for (const value of VALUES)
 						{
@@ -528,7 +528,7 @@ describe(
 					"should return undefined when given anything else",
 					() =>
 					{
-						const VALUES = getInvertedValues(CompositeType.FUNCTION_CLASS, CompositeType.OBJECT);
+						const VALUES = getInvertedValues(GroupType.FUNCTION_CLASS, GroupType.OBJECT);
 
 						for (const value of VALUES)
 						{

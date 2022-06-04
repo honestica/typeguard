@@ -7,6 +7,27 @@ import type {
 
 class TypeGuard
 {
+	public static IsPrimitive(value: unknown): value is undefined|null|boolean|number|string
+	{
+		if (value === null)
+		{
+			return true;
+		}
+
+		if (
+			typeof value === "object"
+			||
+			typeof value === "function"
+			||
+			typeof value === "symbol"
+		)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	public static IsDefined<Type>(value: Type): value is NonNullable<Type>
 	{
 		return (value !== undefined) && (value !== null) && !Number.isNaN(value);
