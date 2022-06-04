@@ -5,6 +5,6 @@ export type {
 	ArrayConstraints
 } from "./Types.js";
 
-export { Assertion } from "./Assertion.js";
+export { TypeAssertion } from "./TypeAssertion.js";
 export { TypeGuard } from "./TypeGuard.js";
 export { TypeHint } from "./TypeHint.js";

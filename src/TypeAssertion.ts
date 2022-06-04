@@ -7,7 +7,7 @@ import type {
 
 import { TypeGuard } from "./TypeGuard.js";
 
-class Assertion
+class TypeAssertion
 {
 	public static IsDefined<Type>(value: Type): asserts value is NonNullable<Type>
 	{
@@ -35,7 +35,7 @@ class Assertion
 
 	public static IsInteger(value: unknown): asserts value is number
 	{
-		Assertion.IsNumber(value);
+		TypeAssertion.IsNumber(value);
 
 		if (!TypeGuard.IsInteger(value))
 		{
@@ -45,7 +45,7 @@ class Assertion
 
 	public static IsFiniteNumber(value: unknown): asserts value is number
 	{
-		Assertion.IsNumber(value);
+		TypeAssertion.IsNumber(value);
 
 		if (!TypeGuard.IsFiniteNumber(value))
 		{
@@ -94,7 +94,7 @@ class Assertion
 
 	public static IsPopulatedArray<Type>(value: unknown, constraints?: ArrayConstraints<Type>): asserts value is PopulatedArray<Type>
 	{
-		Assertion.IsArray(value, { minLength: 1, ...constraints });
+		TypeAssertion.IsArray(value, { minLength: 1, ...constraints });
 	}
 
 	public static IsRecord<KeyType extends number|string|symbol = string>(value: unknown): asserts value is Record<KeyType, unknown>
@@ -144,13 +144,13 @@ class Assertion
 	// eslint-disable-next-line @typescript-eslint/no-shadow
 	public static HasProperty<O extends object, K extends string>(value: O, property: K): asserts value is ObjectWithProperty<O, K>
 	{
-		Assertion.HasNullableProperty<O, K>(value, property);
+		TypeAssertion.HasNullableProperty<O, K>(value, property);
 
 		if (!TypeGuard.IsDefined(value[property]))
 		{
-			throw new Error(`value has a property named "${property}", but it is undefined or null`);
+			throw new Error(`value has a property named "${property}", but it is undefined, null, or NaN`);
 		}
 	}
 }
 
-export { Assertion };
+export { TypeAssertion };

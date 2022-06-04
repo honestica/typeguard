@@ -1,9 +1,9 @@
 import { expect } from "chai";
 import { BaseType, CompositeType, getValues, getInvertedValues } from "./_Utils.js";
-import { Assertion } from "../src/Assertion.js";
+import { TypeAssertion } from "../src/TypeAssertion.js";
 
 describe(
-	"Assertion",
+	"TypeAssertion",
 	() =>
 	{
 		describe(
@@ -18,7 +18,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsDefined(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsDefined(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -31,7 +31,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsDefined(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsDefined(value); }).to.not.throw();
 						}
 					}
 				);
@@ -50,7 +50,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsBoolean(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsBoolean(value); }).to.not.throw();
 						}
 					}
 				);
@@ -63,7 +63,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsBoolean(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsBoolean(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -82,7 +82,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsNumber(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsNumber(value); }).to.not.throw();
 						}
 					}
 				);
@@ -95,7 +95,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsNumber(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -114,7 +114,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFiniteNumber(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsFiniteNumber(value); }).to.not.throw();
 						}
 					}
 				);
@@ -127,7 +127,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsFiniteNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -140,7 +140,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFiniteNumber(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsFiniteNumber(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -159,7 +159,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsInteger(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsInteger(value); }).to.not.throw();
 						}
 					}
 				);
@@ -172,7 +172,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsInteger(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsInteger(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -185,7 +185,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsInteger(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsInteger(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -204,7 +204,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsString(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsString(value); }).to.not.throw();
 						}
 					}
 				);
@@ -217,7 +217,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsString(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsString(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -236,7 +236,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsArray(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsArray(value); }).to.not.throw();
 						}
 					}
 				);
@@ -249,7 +249,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsArray(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsArray(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -258,8 +258,8 @@ describe(
 					"should return when given an array with a length greater or equal to the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsArray([1, 2, 3], { minLength: 2 }); }).to.not.throw();
-						expect(() => { Assertion.IsArray([1, 2, 3], { minLength: 3 }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsArray([1, 2, 3], { minLength: 2 }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsArray([1, 2, 3], { minLength: 3 }); }).to.not.throw();
 					}
 				);
 
@@ -267,8 +267,8 @@ describe(
 					"should throw when given an array with a length below the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsArray([], { minLength: 1 }); }).to.throw(/^value /);
-						expect(() => { Assertion.IsArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsArray([], { minLength: 1 }); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
 					}
 				);
 
@@ -280,8 +280,8 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsArray([], { itemGuard: GUARD }); }).to.not.throw();
-						expect(() => { Assertion.IsArray([1, 2, 3], { itemGuard: GUARD }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsArray([], { itemGuard: GUARD }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsArray([1, 2, 3], { itemGuard: GUARD }); }).to.not.throw();
 					}
 				);
 
@@ -293,7 +293,7 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
 					}
 				);
 			}
@@ -307,7 +307,7 @@ describe(
 					"should throw when given an empty array",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([]); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsPopulatedArray([]); }).to.throw(/^value /);
 					}
 				);
 
@@ -315,7 +315,7 @@ describe(
 					"should throw when given a populated array",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3]); }).to.not.throw();
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3]); }).to.not.throw();
 					}
 				);
 
@@ -327,7 +327,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsPopulatedArray(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsPopulatedArray(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -336,8 +336,8 @@ describe(
 					"should return when given an array with a length greater or equal to the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { minLength: 2 }); }).to.not.throw();
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { minLength: 3 }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3], { minLength: 2 }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3], { minLength: 3 }); }).to.not.throw();
 					}
 				);
 
@@ -345,7 +345,7 @@ describe(
 					"should throw when given an array with a length below the minLength constraint",
 					() =>
 					{
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3], { minLength: 4 }); }).to.throw(/^value /);
 					}
 				);
 
@@ -357,7 +357,7 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3], { itemGuard: GUARD }); }).to.not.throw();
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3], { itemGuard: GUARD }); }).to.not.throw();
 					}
 				);
 
@@ -369,7 +369,7 @@ describe(
 						{
 							return Number.isSafeInteger(value);
 						};
-						expect(() => { Assertion.IsPopulatedArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.IsPopulatedArray([1, 2, 3, Symbol()], { itemGuard: GUARD }); }).to.throw(/^value /);
 					}
 				);
 			}
@@ -387,7 +387,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFunction(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsFunction(value); }).to.not.throw();
 						}
 					}
 				);
@@ -400,7 +400,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsFunction(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsFunction(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -419,7 +419,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsCallable(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsCallable(value); }).to.not.throw();
 						}
 					}
 				);
@@ -432,7 +432,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsCallable(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsCallable(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -451,7 +451,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsRecord(value); }).to.not.throw();
 						}
 					}
 				);
@@ -464,7 +464,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsRecord(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -477,7 +477,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsRecord(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsRecord(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -496,7 +496,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsObject(value); }).to.not.throw();
+							expect(() => { TypeAssertion.IsObject(value); }).to.not.throw();
 						}
 					}
 				);
@@ -509,7 +509,7 @@ describe(
 
 						for (const value of VALUES)
 						{
-							expect(() => { Assertion.IsObject(value); }).to.throw(/^value /);
+							expect(() => { TypeAssertion.IsObject(value); }).to.throw(/^value /);
 						}
 					}
 				);
@@ -524,7 +524,7 @@ describe(
 					"should throw when given an object without the property",
 					() =>
 					{
-						expect(() => { Assertion.HasNullableProperty({}, "answer"); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.HasNullableProperty({}, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -532,7 +532,7 @@ describe(
 					"should return when given an object with the property",
 					() =>
 					{
-						expect(() => { Assertion.HasNullableProperty({ answer: undefined }, "answer"); }).to.not.throw();
+						expect(() => { TypeAssertion.HasNullableProperty({ answer: undefined }, "answer"); }).to.not.throw();
 					}
 				);
 			}
@@ -546,7 +546,7 @@ describe(
 					"should throw when given an object without the property",
 					() =>
 					{
-						expect(() => { Assertion.HasProperty({}, "answer"); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.HasProperty({}, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -554,7 +554,7 @@ describe(
 					"should throw when given an object with the property, but the value is nullish",
 					() =>
 					{
-						expect(() => { Assertion.HasProperty({ answer: undefined }, "answer"); }).to.throw(/^value /);
+						expect(() => { TypeAssertion.HasProperty({ answer: undefined }, "answer"); }).to.throw(/^value /);
 					}
 				);
 
@@ -562,7 +562,7 @@ describe(
 					"should return when given an object with the property and the value is not nullish",
 					() =>
 					{
-						expect(() => { Assertion.HasProperty({ answer: 42 }, "answer"); }).to.not.throw();
+						expect(() => { TypeAssertion.HasProperty({ answer: 42 }, "answer"); }).to.not.throw();
 					}
 				);
 			}
