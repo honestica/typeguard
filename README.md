@@ -71,6 +71,10 @@ Asserts that the value is an object with the property defined.
 
 ## TypeGuard
 
+#### `static IsPrimitive(value: unknown): boolean`
+
+Narrow down the value to being nullish, NaN, a boolean, a number, or a string.
+
 #### `static IsDefined(value: unknown): boolean`
 
 Narrow down the value to being not nullable, nor NaN.
@@ -161,7 +165,7 @@ Note: generator refers to a generator function.
 #### `static GetDetailedType(value: any): string`
 
 Return a string depending on the type of the given value.<br />
-Provide more details than [GetBaseType](#GetBaseType).
+Provide more details than `GetBaseType`.
 
 Possible values:
 - undefined
@@ -189,3 +193,15 @@ If given a function, generator function, method, or class, return its name.<br /
 If given an object, return its constructor name.<br />
 If the given value doesn't have a name, return an empty string.<br />
 For any other value, return undefined.
+
+
+## ValueGuard
+
+#### `static IsSimilar(a: any, b: any): boolean`
+
+Return true in the following cases :
+- The same value has been passed as both arguments.
+- Similar primitive values have been passed as arguments.
+- Similar records have been passed as arguments.
+
+Otherwise, return false.
