@@ -40,7 +40,7 @@ The optional parameter `constraints` accept an object described by the following
 interface ArrayConstraints<T>
 {
 	minLength?: number;
-	itemGuard: (item: unknown) => item is T;
+	itemGuard?: (item: unknown) => item is T;
 }
 ```
 
@@ -113,7 +113,7 @@ The optional parameter `constraints` accept an object described by the following
 interface ArrayConstraints<T>
 {
 	minLength?: number;
-	itemGuard: (item: unknown) => item is T;
+	itemGuard?: (item: unknown) => item is T;
 }
 ```
 
@@ -198,7 +198,6 @@ If given a function, generator function, method, or class, return its name.<br /
 If given an object, return its constructor name.<br />
 If the given value doesn't have a name, return an empty string.<br />
 For any other value, return undefined.
-
 
 ## ValueGuard
 
