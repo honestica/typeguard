@@ -7,7 +7,7 @@
 
 ## TypeAssertion
 
-#### IsDefined
+### IsDefined
 
 ```ts
 static IsDefined(value: unknown): void
@@ -15,7 +15,7 @@ static IsDefined(value: unknown): void
 
 Asserts that the value is not nullable, nor NaN.
 
-#### IsBoolean
+### IsBoolean
 
 ```ts
 static IsBoolean(value: unknown): void
@@ -23,7 +23,7 @@ static IsBoolean(value: unknown): void
 
 Asserts that the value is a boolean.
 
-#### IsNumber
+### IsNumber
 
 ```ts
 static IsNumber(value: unknown): void
@@ -31,7 +31,7 @@ static IsNumber(value: unknown): void
 
 Asserts that the value is a number, but not NaN.
 
-#### IsInteger
+### IsInteger
 
 ```ts
 static IsInteger(value: unknown): void
@@ -39,7 +39,7 @@ static IsInteger(value: unknown): void
 
 Asserts that the value is a safe integer.
 
-#### IsFiniteNumber
+### IsFiniteNumber
 
 ```ts
 static IsFiniteNumber(value: unknown): void
@@ -47,7 +47,7 @@ static IsFiniteNumber(value: unknown): void
 
 Asserts that the value is a number, but not NaN nor +/-Infinity.
 
-#### IsString
+### IsString
 
 ```ts
 static IsString(value: unknown): void
@@ -55,7 +55,7 @@ static IsString(value: unknown): void
 
 Asserts that the value is a string.
 
-#### IsArray
+### IsArray
 
 ```ts
 static IsArray(value: unknown, constraints?: ArrayConstraints): void
@@ -76,7 +76,7 @@ interface ArrayConstraints<T>
 If `minLength` is provided, it'll asserts that the value has at least that many items.<br />
 If `itemGuard` is provided, it'll asserts that the predicate hold true for every item.
 
-#### IsPopulatedArray
+### IsPopulatedArray
 
 ```ts
 static IsPopulatedArray(value: unknown, constraints?: ArrayConstraints): void
@@ -84,7 +84,7 @@ static IsPopulatedArray(value: unknown, constraints?: ArrayConstraints): void
 
 Like `IsArray`, but asserts that the array is never empty too.
 
-#### IsRecord
+### IsRecord
 
 ```ts
 static IsRecord(value: unknown): void
@@ -92,7 +92,7 @@ static IsRecord(value: unknown): void
 
 Asserts that the value is a record: an object with no prototype, or directly using Object prototype.
 
-#### IsObject
+### IsObject
 
 ```ts
 static IsObject(value: unknown): void
@@ -100,7 +100,7 @@ static IsObject(value: unknown): void
 
 Asserts that the value is an object.
 
-#### IsFunction
+### IsFunction
 
 ```ts
 static IsFunction(value: unknown): void
@@ -108,7 +108,7 @@ static IsFunction(value: unknown): void
 
 Asserts that the value is a function, generator function, method, or class.
 
-#### IsCallable
+### IsCallable
 
 ```ts
 static IsCallable(value: unknown): void
@@ -116,14 +116,14 @@ static IsCallable(value: unknown): void
 
 Asserts that the value is not constructible.
 
-#### HasNullableProperty
+### HasNullableProperty
 
 ```ts
 static HasNullableProperty(value: object, property: string): void
 ```
 
 Asserts that the value is an object with the property defined, though it may be nullish or NaN.
-#### HasProperty
+### HasProperty
 
 ```ts
 static HasProperty(value: object, property: string): void
@@ -133,7 +133,7 @@ Asserts that the value is an object with the property defined.
 
 ## TypeGuard
 
-#### IsPrimitive
+### IsPrimitive
 
 ```ts
 static IsPrimitive(value: unknown): boolean
@@ -141,7 +141,7 @@ static IsPrimitive(value: unknown): boolean
 
 Narrow down the value to being nullish, NaN, a boolean, a number, or a string.
 
-#### IsDefined
+### IsDefined
 
 ```ts
 static IsDefined(value: unknown): boolean
@@ -149,7 +149,7 @@ static IsDefined(value: unknown): boolean
 
 Narrow down the value to being not nullable, nor NaN.
 
-#### IsBoolean
+### IsBoolean
 
 ```ts
 static IsBoolean(value: unknown): boolean
@@ -157,7 +157,7 @@ static IsBoolean(value: unknown): boolean
 
 Narrow down the value to being a boolean.
 
-#### IsNumber
+### IsNumber
 
 ```ts
 static IsNumber(value: unknown): boolean
@@ -165,7 +165,7 @@ static IsNumber(value: unknown): boolean
 
 Narrow down the value to being a number, but not NaN.
 
-#### IsInteger
+### IsInteger
 
 ```ts
 static IsInteger(value: unknown): boolean
@@ -173,7 +173,7 @@ static IsInteger(value: unknown): boolean
 
 Narrow down the value to being a safe integer.
 
-#### IsFiniteNumber
+### IsFiniteNumber
 
 ```ts
 static IsFiniteNumber(value: unknown): boolean
@@ -181,7 +181,7 @@ static IsFiniteNumber(value: unknown): boolean
 
 Narrow down the value to being a number, but not NaN nor +/-Infinity.
 
-#### IsString
+### IsString
 
 ```ts
 static IsString(value: unknown): boolean
@@ -189,7 +189,7 @@ static IsString(value: unknown): boolean
 
 Narrow down the value to being a string.
 
-#### IsArray
+### IsArray
 
 ```ts
 static IsArray(value: unknown, constraints?: ArrayConstraints): boolean
@@ -210,7 +210,7 @@ interface ArrayConstraints<T>
 If `minLength` is provided, it'll confirm that the value has at least that many items.<br />
 If `itemGuard` is provided, it'll confirm that the predicate hold true for every item.
 
-#### IsPopulatedArray
+### IsPopulatedArray
 
 ```ts
 static IsPopulatedArray(value: unknown, constraints?: ArrayConstraints): boolean
@@ -218,7 +218,7 @@ static IsPopulatedArray(value: unknown, constraints?: ArrayConstraints): boolean
 
 Like `IsArray`, but narrow it to being a populated array.
 
-#### IsRecord
+### IsRecord
 
 ```ts
 static IsRecord(value: unknown): boolean
@@ -226,7 +226,7 @@ static IsRecord(value: unknown): boolean
 
 Narrow down the value to being a record: an object with no prototype, or directly using Object prototype.
 
-#### IsObject
+### IsObject
 
 ```ts
 static IsObject(value: unknown): boolean
@@ -234,7 +234,7 @@ static IsObject(value: unknown): boolean
 
 Narrow down the value to being an object.
 
-#### IsFunction
+### IsFunction
 
 ```ts
 static IsFunction(value: unknown): boolean
@@ -242,7 +242,7 @@ static IsFunction(value: unknown): boolean
 
 Narrow down the value to being a function, generator function, method, or class.
 
-#### IsCallable
+### IsCallable
 
 ```ts
 static IsCallable(value: unknown): boolean
@@ -250,14 +250,14 @@ static IsCallable(value: unknown): boolean
 
 Narrow down the value to being not constructible.
 
-#### HasNullableProperty
+### HasNullableProperty
 
 ```ts
 static HasNullableProperty(value: object, property: string): boolean
 ```
 
 Narrow down the value to being an object with the property defined, though it may be nullish or NaN.
-#### HasProperty
+### HasProperty
 
 ```ts
 static HasProperty(value: object, property: string): boolean
@@ -267,7 +267,7 @@ Narrow down the value to being an object with the property defined.
 
 ## TypeHint
 
-#### GetBaseType
+### GetBaseType
 
 ```ts
 static GetBaseType(value: any): string
@@ -290,7 +290,7 @@ Possible values:
 
 Note: generator refers to a generator function.
 
-#### GetDetailedType
+### GetDetailedType
 
 ```ts
 static GetDetailedType(value: any): string
@@ -319,7 +319,7 @@ Possible values:
 
 Note: generator refers to a generator function.
 
-#### GetName
+### GetName
 
 ```ts
 static GetName(value: any): string|undefined
@@ -332,7 +332,7 @@ For any other value, return undefined.
 
 ## ValueGuard
 
-#### IsSimilar
+### IsSimilar
 
 ```ts
 static IsSimilar(a: any, b: any): boolean
