@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+. "$(dirname "$0")/_/husky.sh"
+
+[ -n "$CI" ] && exit 0
+
+exec git diff --cached --name-only | npx --no -- cspell lint "**" ".**/**" ".*" --show-suggestions --no-must-find-files --config ".vscode/cspell.json" --file-list stdin
+
+npx --no -- lint-staged

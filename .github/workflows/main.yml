@@ -1,0 +1,162 @@
+name: main
+
+on:
+  push:
+    branches: [master, alpha, beta, next]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  qa-format-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Lint markdown
+        run: yarn markdownlint:lint
+      - name: Lint package.json
+        run: yarn packagejson:lint
+      - name: Spell checking with Cspell
+        run: yarn cspell:ci
+      - name: Format codebase with Prettier
+        run: yarn prettier:ci
+      - name: Lint codebase with Eslint
+        run: yarn eslint:ci
+      - name: Typecheck codebase
+        run: yarn ts:check
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: eslint
+          path: reports/eslint
+          if-no-files-found: error
+
+  qa-unit-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run unit and intergration specs
+        run: yarn test:unit
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: mocha
+          path: reports/mocha
+          if-no-files-found: error
+
+  qa-mutation-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run mutation specs
+        run: yarn test:mutation
+        # env:
+        #   STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+      - name: Upload reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: stryker
+          path: reports/stryker
+          if-no-files-found: error
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build package
+        run: yarn build
+      - name: Upload lib
+        uses: actions/upload-artifact@v3
+        with:
+          name: lib
+          path: lib
+          if-no-files-found: error
+
+  # qa-sonar-cloud:
+  #   needs: [qa-lint, qa-unit-testing]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: '.nvmrc'
+  #         cache: 'yarn'
+  #     - name: Install dependencies
+  #       run: yarn install
+  #     - name: Download Eslint artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: eslint
+  #         path: reports/eslint
+  #     - name: Download Jest artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: jest
+  #         path: reports/jest
+  #     - name: SonarCloud Scan
+  #       uses: SonarSource/sonarcloud-github-action@master
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  # publish:
+  #   needs: [build, qa-format-and-lint, qa-unit-testing, qa-mutation-testing]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #         persist-credentials: false
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: '.nvmrc'
+  #         cache: 'yarn'
+  #     - name: Install dependencies
+  #       run: yarn install
+  #     - name: Download lib
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: lib
+  #         path: lib
+  #     - name: Semantic release
+  #       run: yarn semantic-release
+  #       env:
+  #         GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  #         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

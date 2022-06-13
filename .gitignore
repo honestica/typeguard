@@ -1,10 +1,119 @@
-node_modules/
-lib/
-build/
-.vscode/
+# See https://git-scm.com/docs/gitignore and https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
+# Dependencies #
+################
+node_modules
+/.pnp
+.pnp.js
+
+# Generated folders #
+#####################
+/build
+/dist
+/lib
+/client
+/server
+/coverage
+/reports
+/monitor
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+lerna-debug.log
+npm-debug.log
+yarn-debug.log
 yarn-error.log
+newrelic_agent.log
+/connect.lock
+/libpeerconnection.log
+testem.log
+debug.log
+*.debug
 
-# stryker directories
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc #
+########
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+report.*.json
+ngrok
+.eslintcache
+.dccache
+package-lock.json
+.yalc/
+yalc.lock
+docker-compose.override.yml
+compilation-stats.json
+/.sass-cache
+.nyc-output
+bin/*
+
+# IDE #
+#######
+.vscode/*
+!.vscode/settings.json
+!.vscode/task.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/cspell.json
+.history/*
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# StrykerJs #
+#############
+stryker-tmp
 .stryker-tmp
-reports
+stryker.log
+
+# Yarn PnP #
+#############
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

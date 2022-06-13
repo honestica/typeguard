@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "noEmit": false,
+    "listFiles": false,
+    "listEmittedFiles": true
+  }
+}
