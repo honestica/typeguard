@@ -26,6 +26,7 @@
     "plugin:jsdoc/recommended",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
+    "plugin:promise/recommended",
     "plugin:sonarjs/recommended",
     "plugin:unicorn/recommended",
     "plugin:import/typescript",
