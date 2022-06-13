@@ -1,6 +1,8 @@
 # Ignore folders #
 ##################
 /node_modules/*
+/.yarn/*
+/dist/*
 /build/*
 /lib/*
 /coverage/*
@@ -11,9 +13,11 @@
 /cypress/screenshots/*
 /cypress/videos/*
 /cypress/downloads/*
+/.stryker-tmp/*
 
 # Ignore files #
 ################
+.pnp.*
 .DS_Store
 yarn.lock
 package-lock.json

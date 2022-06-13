@@ -66,10 +66,9 @@ Asserts that the value is an array.
 The optional parameter `constraints` accept an object described by the following interface.
 
 ```ts
-interface ArrayConstraints<T>
-{
-	minLength?: number;
-	itemGuard?: (item: unknown) => item is T;
+interface ArrayConstraints<T> {
+  minLength?: number;
+  itemGuard?: (item: unknown) => item is T;
 }
 ```
 
@@ -123,6 +122,7 @@ static HasNullableProperty(value: object, property: string): void
 ```
 
 Asserts that the value is an object with the property defined, though it may be nullish or NaN.
+
 ### HasProperty
 
 ```ts
@@ -200,10 +200,9 @@ Narrow down the value to being an array.
 The optional parameter `constraints` accept an object described by the following interface.
 
 ```ts
-interface ArrayConstraints<T>
-{
-	minLength?: number;
-	itemGuard?: (item: unknown) => item is T;
+interface ArrayConstraints<T> {
+  minLength?: number;
+  itemGuard?: (item: unknown) => item is T;
 }
 ```
 
@@ -257,6 +256,7 @@ static HasNullableProperty(value: object, property: string): boolean
 ```
 
 Narrow down the value to being an object with the property defined, though it may be nullish or NaN.
+
 ### HasProperty
 
 ```ts
@@ -276,6 +276,7 @@ static GetBaseType(value: any): string
 Return a string depending on the type of the given value.
 
 Possible values:
+
 - undefined
 - null
 - NaN
@@ -300,6 +301,7 @@ Return a string depending on the type of the given value.<br />
 Provide more details than `GetBaseType`.
 
 Possible values:
+
 - undefined
 - null
 - NaN
@@ -339,6 +341,7 @@ static IsSimilar(a: any, b: any): boolean
 ```
 
 Return true in the following cases :
+
 - The same value has been passed as both arguments.
 - Similar primitive values have been passed as arguments.
 - Deeply similar arrays or records have been passed as arguments.

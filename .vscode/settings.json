@@ -1,0 +1,25 @@
+{
+  // Linters & prettier extensions settings
+  "files.trimTrailingWhitespace": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.markdownlint": true,
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": false
+  },
+  "eslint.format.enable": false,
+  "markdownlint.ignore": ["CHANGELOG.md", "LICENSE", "**/node_modules/**"],
+
+  // Typescript settings
+  "typescript.tsdk": "./node_modules/typescript/lib",
+
+  // UX
+  "explorer.fileNesting.enabled": true,
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/lib": true,
+    "**/node_modules": true
+  }
+}
