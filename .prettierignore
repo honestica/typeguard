@@ -1,6 +1,7 @@
 # Ignore folders #
 ##################
 node_modules
+.yarn
 reports/
 coverage/
 build/
@@ -42,6 +43,7 @@ stats/
 browserslist
 package-lock.json
 yarn.lock
+.pnp.*
 
 # Ignore generated files #
 ##########################

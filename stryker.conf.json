@@ -1,16 +1,35 @@
 {
-	"$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-	"_comment": "This config was generated using 'stryker init'. Please take a look at: https://stryker-mutator.io/docs/stryker-js/configuration/ for more information",
-	"packageManager": "yarn",
-	"reporters": [
-		"html",
-		"clear-text",
-		"progress"
-	],
-	"testRunner": "mocha",
-	"coverageAnalysis": "perTest",
-	"buildCommand": "tsc",
-	"ignoreStatic": true,
-	"checkers": ["typescript"],
-	"tsconfigFile": "tsconfig.stryker.json"
+  "packageManager": "yarn",
+  "mutate": ["./src/**/*.ts"],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/.github/**",
+    "**/.husky/**",
+    "**/.yarn/**",
+    "**/.stryker-tmp/**",
+    "**/stats/**",
+    "**/docs/**",
+    "**/documentations/**",
+    "**/reports/**",
+    "**/coverage/**",
+    "**/build/**",
+    "**/dist/**",
+    "**/lib/**"
+  ],
+  "reporters": ["html", "clear-text", "progress"],
+  "htmlReporter": {
+    "fileName": "./reports/stryker/mutation.html"
+  },
+  "jsonReporter": {
+    "fileName": "./reports/stryker/mutation.json"
+  },
+  "testRunner": "mocha",
+  "mochaOptions": {
+    "config": ".mocharc.json"
+  },
+  "coverageAnalysis": "perTest",
+  "buildCommand": "tsc",
+  "ignoreStatic": true,
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.stryker.json"
 }
