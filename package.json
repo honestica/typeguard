@@ -1,7 +1,7 @@
 {
   "name": "@honestica/ts-predicate",
   "version": "0.0.0-dev",
-  "description": "TypeScript predicate and typeguard library",
+  "description": "TypeScript predicates and assertions library",
   "author": "Benjamin Blum <vuk.kulvar+github@gmail.com>",
   "contributors": [
     "Lifen SAS <ops@lifen.fr>"
@@ -42,6 +42,7 @@
     "markdownlint:lint": "markdownlint-cli2 '**/*.md'",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
+    "packagejson:check": "package-check",
     "packagejson:format": "prettier-package-json --write ./package.json",
     "packagejson:lint": "npmPkgJsonLint .",
     "test": "yarn test:unit",
@@ -52,6 +53,7 @@
     "prettier:fix": "prettier --write ."
   },
   "devDependencies": {
+    "@skypack/package-check": "^0.2.2",
     "@stryker-mutator/core": "^6.0.2",
     "@stryker-mutator/mocha-runner": "^6.0.2",
     "@stryker-mutator/typescript-checker": "^6.0.2",

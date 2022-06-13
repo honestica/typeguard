@@ -23,6 +23,8 @@ jobs:
         run: yarn markdownlint:lint
       - name: Lint package.json
         run: yarn packagejson:lint
+      - name: Check package.json library usage
+        run: yarn packagejson:check
       - name: Spell checking with Cspell
         run: yarn cspell:ci
       - name: Format codebase with Prettier
