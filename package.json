@@ -34,6 +34,7 @@
     "build:cjs": "tsc -b tsconfig.build.cjs.json",
     "build:esm": "tsc -b tsconfig.build.esm.json",
     "clean": "rm -rfv reports coverage build dist lib .eslintcache",
+    "commit": "cz",
     "cspell:check": "cspell '**' '.**/**' '.*' --show-suggestions --config '.vscode/cspell.json'",
     "cspell:ci": "cspell lint '**' '.**/**' '.*' --show-suggestions --config '.vscode/cspell.json'",
     "eslint:ci": "eslint . --ext ts,mts,cts,js,mjs,cjs --format json -o reports/eslint/honestica-ts-predicate-eslint-junit.json",
@@ -53,6 +54,9 @@
     "prettier:fix": "prettier --write ."
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "@commitlint/cz-commitlint": "^17.0.0",
     "@skypack/package-check": "^0.2.2",
     "@stryker-mutator/core": "^6.0.2",
     "@stryker-mutator/mocha-runner": "^6.0.2",
@@ -63,6 +67,7 @@
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "chai": "^4.3.6",
+    "commitizen": "^4.2.4",
     "cspell": "^6.1.2",
     "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
