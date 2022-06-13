@@ -2,7 +2,7 @@ name: main
 
 on:
   push:
-    branches: [master, alpha, beta, next]
+    branches: [main, alpha, beta, next]
   pull_request:
     types: [opened, synchronize, reopened]
 
