@@ -1,10 +1,14 @@
 {
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "streetsidesoftware.code-spell-checker",
-    "editorconfig.editorconfig",
-    "DavidAnson.vscode-markdownlint"
-  ],
-  "unwantedRecommendations": ["hookyqr.beautify", "dbaeumer.jshint", "ms-vscode.vscode-typescript-tslint-plugin"]
+	"recommendations": [
+		"editorconfig.editorconfig",
+		"DavidAnson.vscode-markdownlint",
+		"dbaeumer.vscode-eslint",
+		"streetsidesoftware.code-spell-checker",
+	],
+	"unwantedRecommendations": [
+		"dbaeumer.jshint",
+		"esbenp.prettier-vscode",
+		"hookyqr.beautify",
+		"ms-vscode.vscode-typescript-tslint-plugin",
+	]
 }

@@ -1,35 +1,33 @@
 {
-  "packageManager": "yarn",
-  "mutate": ["./src/**/*.ts"],
-  "ignorePatterns": [
-    "**/node_modules/**",
-    "**/.github/**",
-    "**/.husky/**",
-    "**/.yarn/**",
-    "**/.stryker-tmp/**",
-    "**/stats/**",
-    "**/docs/**",
-    "**/documentations/**",
-    "**/reports/**",
-    "**/coverage/**",
-    "**/build/**",
-    "**/dist/**",
-    "**/lib/**"
-  ],
-  "reporters": ["html", "clear-text", "progress"],
-  "htmlReporter": {
-    "fileName": "./reports/stryker/mutation.html"
-  },
-  "jsonReporter": {
-    "fileName": "./reports/stryker/mutation.json"
-  },
-  "testRunner": "mocha",
-  "mochaOptions": {
-    "config": ".mocharc.json"
-  },
-  "coverageAnalysis": "perTest",
-  "buildCommand": "tsc",
-  "ignoreStatic": true,
-  "checkers": ["typescript"],
-  "tsconfigFile": "tsconfig.stryker.json"
+	"packageManager": "yarn",
+	"mutate": ["./src/**/*.ts"],
+	"ignorePatterns": [
+		"**/node_modules/**",
+		"**/.github/**",
+		"**/.husky/**",
+		"**/.yarn/**",
+		"**/.stryker-tmp/**",
+		"**/stats/**",
+		"**/docs/**",
+		"**/documentations/**",
+		"**/reports/**",
+		"**/coverage/**",
+		"**/build/**",
+		"**/dist/**",
+		"**/lib/**"
+	],
+	"reporters": ["html", "clear-text", "progress"],
+	"htmlReporter": {
+		"fileName": "./reports/stryker/mutation.html"
+	},
+	"jsonReporter": {
+		"fileName": "./reports/stryker/mutation.json"
+	},
+	"commandRunner": {
+		"command": "npx ts-mocha -p ./tsconfig.stryker.json"
+	},
+	"coverageAnalysis": "perTest",
+	"ignoreStatic": true,
+	"checkers": ["typescript"],
+	"tsconfigFile": "tsconfig.stryker.json"
 }
