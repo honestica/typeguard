@@ -1407,7 +1407,7 @@ module.exports = {
 					},
 					{
 						selector: ["enumMember"],
-						format: ["camelCase", "UPPER_CASE"],
+						format: ["PascalCase", "UPPER_CASE"],
 						leadingUnderscore: "forbid",
 						trailingUnderscore: "forbid",
 					},
