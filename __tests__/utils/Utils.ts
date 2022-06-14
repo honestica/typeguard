@@ -44,7 +44,7 @@ interface OldClassStyle
 	new(): typeof OldDummyClass;
 }
 
-// @ts-expect-error Old style class
+// @ts-expect-error: old style class
 // eslint-disable-next-line @typescript-eslint/naming-convention -- Old class notation
 const OldDummyClass: OldClassStyle = function OldDummyClass() {};
 

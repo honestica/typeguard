@@ -1,10 +1,10 @@
 import { TypeGuard } from "./TypeGuard.js";
 
 /**
- * ValueGuard
- *
- * @class
- */
+* ValueGuard
+*
+* @class
+*/
 class ValueGuard
 {
 	/**
