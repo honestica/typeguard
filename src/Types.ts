@@ -1,25 +1,25 @@
 /**
- * ObjectWithNullableProperty type
- */
+* ObjectWithNullableProperty type
+*/
 type ObjectWithNullableProperty<O extends object, K extends string> = O & {
 	[property in K]: K extends keyof O ? O[K] : unknown;
 };
 
 /**
- * ObjectWithProperty type
- */
+* ObjectWithProperty type
+*/
 type ObjectWithProperty<O extends object, K extends string> = O & {
 	[property in K]: K extends keyof O ? NonNullable<O[K]> : unknown;
 };
 
 /**
- * PopulatedArray type
- */
+* PopulatedArray type
+*/
 type PopulatedArray<Type> = [Type, ...Array<Type>];
 
 /**
- * ArrayConstraints interface
- */
+* ArrayConstraints interface
+*/
 interface ArrayConstraints<Type>
 {
 	/**
