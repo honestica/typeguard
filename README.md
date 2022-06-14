@@ -66,9 +66,10 @@ Asserts that the value is an array.
 The optional parameter `constraints` accept an object described by the following interface.
 
 ```ts
-interface ArrayConstraints<T> {
-  minLength?: number;
-  itemGuard?: (item: unknown) => item is T;
+interface ArrayConstraints<T>
+{
+	minLength?: number;
+	itemGuard?: (item: unknown) => item is T;
 }
 ```
 
@@ -89,7 +90,8 @@ Like `IsArray`, but asserts that the array is never empty too.
 static IsRecord(value: unknown): void
 ```
 
-Asserts that the value is a record: an object with no prototype, or directly using Object prototype.
+Asserts that the value is a record: an object with no prototype, or directly
+using Object prototype.
 
 ### IsObject
 
@@ -200,9 +202,10 @@ Narrow down the value to being an array.
 The optional parameter `constraints` accept an object described by the following interface.
 
 ```ts
-interface ArrayConstraints<T> {
-  minLength?: number;
-  itemGuard?: (item: unknown) => item is T;
+interface ArrayConstraints<T>
+{
+	minLength?: number;
+	itemGuard?: (item: unknown) => item is T;
 }
 ```
 
