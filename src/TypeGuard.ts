@@ -1,10 +1,10 @@
 import type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray } from "./Types.js";
 
 /**
- * TypeGuard
- *
- * @class
- */
+* TypeGuard
+*
+* @class
+*/
 class TypeGuard
 {
 	/**

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return, @typescript-eslint/restrict-template-expressions -- please fix */
 /**
- * TypeHint
+* TypeHint
  *
- * @class
- */
+* @class
+*/
 class TypeHint
 {
 	/**
@@ -137,20 +136,19 @@ class TypeHint
 				return `array (${value.length.toString()} items)`;
 			}
 
-			const PROTO: unknown = Object.getPrototypeOf(value);
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Prototype is loosely typed
+			const PROTO: object | null = Object.getPrototypeOf(value);
 
 			if (PROTO === null || PROTO === Object.prototype)
 			{
 				return "anonymous object";
 			}
 
-			// @ts-expect-error please fix
 			if (PROTO.constructor.name === "")
 			{
 				return "object anonymous class";
 			}
 
-			// @ts-expect-error please fix
 			return `object ${PROTO.constructor.name}`;
 		}
 
@@ -205,14 +203,14 @@ class TypeHint
 		}
 		else if (typeof value === "object" && value !== null)
 		{
-			const PROTO: unknown = Object.getPrototypeOf(value);
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Prototype is loosely typed
+			const PROTO: object | null = Object.getPrototypeOf(value);
 
 			if (PROTO === null)
 			{
 				return "";
 			}
 
-			// @ts-expect-error please fix
 			return PROTO.constructor.name;
 		}
 
@@ -221,5 +219,3 @@ class TypeHint
 }
 
 export { TypeHint };
-
-/* eslint-enable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return, @typescript-eslint/restrict-template-expressions -- please fix */
