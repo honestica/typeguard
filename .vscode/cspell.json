@@ -4,22 +4,30 @@
 	"allowCompoundWords": true,
 	"dictionaries": ["softwareTerms", "typescript", "node", "html", "css", "bash", "npm"],
 	"words": [
-		"browserslistrc",
 		"honestica",
-		"lcov",
 		"Lifen",
+		"Zamralik"
+	],
+	"ignoreWords": [
+		"browserslistrc",
+		"cond",
+		"dccache",
+		"ehthumbs",
+		"iife",
+		"isnan",
+		"lcov",
 		"mocharc",
+		"mochawesome",
 		"nocheck",
 		"npmrc",
 		"pinst",
 		"sonarjs",
 		"stylelintrc",
+		"testem",
 		"webm",
 		"webp",
-		"yalc",
-		"Zamralik"
+		"yalc"
 	],
-	"ignoreWords": ["cond", "nocheck", "iife", "isnan", "testem", "ehthumbs", "dccache"],
 	"flagWords": ["hte"],
 	"ignorePaths": [
 		"**/node_modules/**",
