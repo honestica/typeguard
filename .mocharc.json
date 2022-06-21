@@ -2,5 +2,9 @@
 	"extension": ["ts"],
 	"spec": "./__tests__/**/*.spec.ts",
 	"require": "ts-node/register",
-	"loader": "ts-node/esm"
+	"loader": "ts-node/esm",
+	"reporter": "mochawesome",
+	"reporter-options": [
+		"reportDir=./reports/mocha"
+	]
 }
