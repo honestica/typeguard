@@ -152,7 +152,7 @@ jobs:
                   name: lib
                   path: lib
             - name: Verify
-                  run: echo $GITHUB_TOKEN && echo $NPM_TOKEN
+              run: echo $GITHUB_TOKEN && echo $NPM_TOKEN
             - name: Semantic release
               run: npx semantic-release
               env:
