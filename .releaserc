@@ -1,4 +1,15 @@
 {
 	"extends": "semantic-release-npm-github-publish",
-	"branches": ["main", "next", "beta", "alpha"]
+	"branches": [
+		"main",
+		"next",
+		{
+			"name": "beta",
+			"prerelease": true
+		},
+		{
+			"name": "alpha",
+			"prerelease": true
+		}
+	]
 }
