@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/honestica/typeguard/compare/v1.0.0...v1.0.1) (2022-06-23)
+
+
+### chore
+
+* clean scripts and dependencies ([bc8d831](https://github.com/honestica/typeguard/commit/bc8d831e9f33821d07238621b69c91fd73cd7072))
+* **deps:** add missing devDependencies after rebasing main branch ([ec0048d](https://github.com/honestica/typeguard/commit/ec0048d7464963dc754db65a1b3fe381ee75cb4b))
+
 # 1.0.0 (2022-06-23)
 
 

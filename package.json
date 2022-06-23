@@ -1,6 +1,6 @@
 {
 	"name": "ts-predicate",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "TypeScript predicates and assertions library",
 	"author": "Benjamin Blum <vuk.kulvar+github@gmail.com>",
 	"contributors": [
