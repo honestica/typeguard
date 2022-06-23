@@ -1,3 +1,10 @@
+# [1.0.0-alpha.3](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-06-23)
+
+
+### chore
+
+* rename package with unscoped package name ([e8e0f5d](https://github.com/honestica/typeguard/commit/e8e0f5d59eb5ba78cd0145f77d8743030711b144))
+
 # [1.0.0-alpha.2](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-06-23)
 
 
