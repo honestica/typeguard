@@ -2031,15 +2031,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv-errors@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "ajv-errors@npm:1.0.1"
-  peerDependencies:
-    ajv: ">=5.0.0"
-  checksum: 2c9fc02cf58f9aae5bace61ebd1b162e1ea372ae9db5999243ba5e32a9a78c0d635d29ae085f652c61c941a43af0b2b1acdb255e29d44dc43a6e021085716d8c
-  languageName: node
-  linkType: hard
-
 "ajv@npm:^6.10.0, ajv@npm:^6.12.4, ajv@npm:^6.12.6":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
@@ -2445,13 +2436,6 @@ __metadata:
   version: 3.3.0
   resolution: "builtin-modules@npm:3.3.0"
   checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
-  languageName: node
-  linkType: hard
-
-"builtins@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "builtins@npm:1.0.3"
-  checksum: 47ce94f7eee0e644969da1f1a28e5f29bd2e48b25b2bbb61164c345881086e29464ccb1fb88dbc155ea26e8b1f5fc8a923b26c8c1ed0935b67b644d410674513
   languageName: node
   linkType: hard
 
@@ -3294,7 +3278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decamelize@npm:^1.1.0, decamelize@npm:^1.2.0":
+"decamelize@npm:^1.1.0":
   version: 1.2.0
   resolution: "decamelize@npm:1.2.0"
   checksum: ad8c51a7e7e0720c70ec2eeb1163b66da03e7616d7b98c9ef43cce2416395e84c1e9548dd94f5f6ffecfee9f8b94251fc57121a8b021f2ff2469b2bae247b8aa
@@ -5000,13 +4984,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"irregular-plurals@npm:^3.2.0":
-  version: 3.3.0
-  resolution: "irregular-plurals@npm:3.3.0"
-  checksum: 1282d8adfb00a9718655ce21e5b096d4b31d2115c817a30e1e3254648ae4ac0f84d706cd0cad2a93c64f4bb5c5572ea8f63fcc9766f005a5362031c56d9e77b5
-  languageName: node
-  linkType: hard
-
 "is-arrayish@npm:^0.2.1":
   version: 0.2.1
   resolution: "is-arrayish@npm:0.2.1"
@@ -5191,13 +5168,6 @@ __metadata:
   version: 2.1.0
   resolution: "is-plain-obj@npm:2.1.0"
   checksum: cec9100678b0a9fe0248a81743041ed990c2d4c99f893d935545cfbc42876cbe86d207f3b895700c690ad2fa520e568c44afc1605044b535a7820c1d40e38daa
-  languageName: node
-  linkType: hard
-
-"is-plain-obj@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "is-plain-obj@npm:3.0.0"
-  checksum: a6ebdf8e12ab73f33530641972a72a4b8aed6df04f762070d823808303e4f76d87d5ea5bd76f96a7bbe83d93f04ac7764429c29413bd9049853a69cb630fb21c
   languageName: node
   linkType: hard
 
@@ -5439,13 +5409,6 @@ __metadata:
   bin:
     json5: lib/cli.js
   checksum: 74b8a23b102a6f2bf2d224797ae553a75488b5adbaee9c9b6e5ab8b510a2fc6e38f876d4c77dea672d4014a44b2399e15f2051ac2b37b87f74c0c7602003543b
-  languageName: node
-  linkType: hard
-
-"jsonc-parser@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "jsonc-parser@npm:3.0.0"
-  checksum: 1df2326f1f9688de30c70ff19c5b2a83ba3b89a1036160da79821d1361090775e9db502dc57a67c11b56e1186fc1ed70b887f25c5febf9a3ec4f91435836c99d
   languageName: node
   linkType: hard
 
@@ -6049,26 +6012,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meow@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "meow@npm:9.0.0"
-  dependencies:
-    "@types/minimist": ^1.2.0
-    camelcase-keys: ^6.2.2
-    decamelize: ^1.2.0
-    decamelize-keys: ^1.1.0
-    hard-rejection: ^2.1.0
-    minimist-options: 4.1.0
-    normalize-package-data: ^3.0.0
-    read-pkg-up: ^7.0.1
-    redent: ^3.0.0
-    trim-newlines: ^3.0.0
-    type-fest: ^0.18.0
-    yargs-parser: ^20.2.3
-  checksum: 99799c47247f4daeee178e3124f6ef6f84bde2ba3f37652865d5d8f8b8adcf9eedfc551dd043e2455cd8206545fd848e269c0c5ab6b594680a0ad4d3617c9639
-  languageName: node
-  linkType: hard
-
 "merge-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "merge-stream@npm:2.0.0"
@@ -6640,33 +6583,6 @@ __metadata:
     semver: ^7.3.5
     validate-npm-package-name: ^4.0.0
   checksum: 277c21477731a4f1e31bde36f0db5f5470deb2a008db2aaf1b015d588b23cb225c75f90291ea241235e86682a03de972bbe69fc805c921a786ea9616955990b9
-  languageName: node
-  linkType: hard
-
-"npm-package-json-lint@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "npm-package-json-lint@npm:6.3.0"
-  dependencies:
-    ajv: ^6.12.6
-    ajv-errors: ^1.0.1
-    chalk: ^4.1.2
-    cosmiconfig: ^7.0.1
-    debug: ^4.3.4
-    globby: ^11.1.0
-    ignore: ^5.2.0
-    is-plain-obj: ^3.0.0
-    jsonc-parser: ^3.0.0
-    log-symbols: ^4.1.0
-    meow: ^9.0.0
-    plur: ^4.0.0
-    semver: ^7.3.5
-    slash: ^3.0.0
-    strip-json-comments: ^3.1.1
-    type-fest: ^2.12.0
-    validate-npm-package-name: ^3.0.0
-  bin:
-    npmPkgJsonLint: dist/cli.js
-  checksum: 20e204dadee92402922422d0afae2a0414ede6cebc5c105eaeb3c308f259c39c53bd8c3b2d4d0acc48ffb94f1a292a3854464d8e4edfd08e555022a8ba33b2ed
   languageName: node
   linkType: hard
 
@@ -7371,15 +7287,6 @@ __metadata:
     find-up: ^2.0.0
     load-json-file: ^4.0.0
   checksum: b50775157262abd1bfb4d3d948f3fc6c009d10266c6507d4de296af4e2cbb6d2738310784432185886d83144466fbb286b6e8ff0bc23dc5ee7d81810dc6c4788
-  languageName: node
-  linkType: hard
-
-"plur@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "plur@npm:4.0.0"
-  dependencies:
-    irregular-plurals: ^3.2.0
-  checksum: fea2e903efca67cc5c7a8952fca3db46ae8d9e9353373b406714977e601a5d3b628bcb043c3ad2126c6ff0e73d8020bf43af30a72dd087eff1ec240eb13b90e1
   languageName: node
   linkType: hard
 
@@ -8826,7 +8733,6 @@ __metadata:
     lint-staged: ^13.0.1
     mocha: ^10.0.0
     mochawesome: ^7.1.3
-    npm-package-json-lint: ^6.3.0
     pinst: ^3.0.0
     prettier-package-json: ^2.6.3
     semantic-release: ^19.0.3
@@ -8950,13 +8856,6 @@ __metadata:
   version: 1.4.0
   resolution: "type-fest@npm:1.4.0"
   checksum: b011c3388665b097ae6a109a437a04d6f61d81b7357f74cbcb02246f2f5bd72b888ae33631b99871388122ba0a87f4ff1c94078e7119ff22c70e52c0ff828201
-  languageName: node
-  linkType: hard
-
-"type-fest@npm:^2.12.0":
-  version: 2.13.1
-  resolution: "type-fest@npm:2.13.1"
-  checksum: 16f05cfd2b701f923176b2d6c5656d26435e71dc874851c95df9b0a287ce18a31f5b14e487cc325df6286daac02124cb0551d48c2ae7039f8a763aa376f3b479
   languageName: node
   linkType: hard
 
@@ -9159,15 +9058,6 @@ __metadata:
   dependencies:
     builtins: ^5.0.0
   checksum: a32fd537bad17fcb59cfd58ae95a414d443866020d448ec3b22e8d40550cb585026582a57efbe1f132b882eea4da8ac38ee35f7be0dd72988a3cb55d305a20c1
-  languageName: node
-  linkType: hard
-
-"validate-npm-package-name@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "validate-npm-package-name@npm:3.0.0"
-  dependencies:
-    builtins: ^1.0.3
-  checksum: ce4c68207abfb22c05eedb09ff97adbcedc80304a235a0844f5344f1fd5086aa80e4dbec5684d6094e26e35065277b765c1caef68bcea66b9056761eddb22967
   languageName: node
   linkType: hard
 
