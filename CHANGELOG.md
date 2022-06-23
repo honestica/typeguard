@@ -1,3 +1,51 @@
+# 1.0.0 (2022-06-23)
+
+
+### chore
+
+* add badges to README.md ([d47ac7c](https://github.com/honestica/typeguard/commit/d47ac7c513ea94ccb64d9cdc6b095f02295008ca))
+* add commitlint and commitizen ([bd7a710](https://github.com/honestica/typeguard/commit/bd7a710a74937950ff9c8362a5722bdfc136bdc1))
+* **ci:** remove steps ([a0794a6](https://github.com/honestica/typeguard/commit/a0794a6dc3c2363eb16a6d5647224ab4c1f091b5))
+* **cspell:** updated ignored words ([9259503](https://github.com/honestica/typeguard/commit/9259503748df31090a78d091231b5ab2716c50fc))
+* **deps:** add missing inquirer devDependency ([98af3f6](https://github.com/honestica/typeguard/commit/98af3f6216c9c70ac759c6a64548f61981a971ee))
+* **eslint:** check every TS and JS extension files (new and old) ([268f0dd](https://github.com/honestica/typeguard/commit/268f0ddc1bcda4ac44a9aa11d7122749c78479dd))
+* **eslint:** delete unused and useless eslint plugins ([471a368](https://github.com/honestica/typeguard/commit/471a36886b29eeee2987ff2e031141e9071ea02e))
+* **eslint:** use cjs config instead of json ([7c2d32e](https://github.com/honestica/typeguard/commit/7c2d32e615f3ce49ecf26491f270ffb4646340e8))
+* **publish:** change branch naming ([43e5892](https://github.com/honestica/typeguard/commit/43e589232aaf803a54b2b1f914c099f4ff4690ac))
+* **publish:** test with token setup ([cbc0ef1](https://github.com/honestica/typeguard/commit/cbc0ef18a0012cce22ef027b7df9cb961c88978d))
+* **quality:** add a lot of quality gates and implements CI ([858482f](https://github.com/honestica/typeguard/commit/858482f0f84d8f5dd528386de53579999ae14c58))
+* rename package with unscoped package name ([a8ec6b3](https://github.com/honestica/typeguard/commit/a8ec6b3af30de32f462bec19c8409a33b253a307))
+* **settings:** add token ([f92cd44](https://github.com/honestica/typeguard/commit/f92cd4450bcfeb7d8597b06c0b4864678c748cdb))
+* **test:** add mocha reports ([3bd1ad0](https://github.com/honestica/typeguard/commit/3bd1ad0458d70356da9c216063069288a3d7969d))
+* update vscode settings ([724b544](https://github.com/honestica/typeguard/commit/724b54438c6aa80f53e9deda6beb77b0517d90a0))
+* **yarn:** fix yarn.lock ([e81251b](https://github.com/honestica/typeguard/commit/e81251b8502b7fb8b7d6d132fd595ea01f95c048))
+
+
+### ci
+
+* delete verify step ([4bc87fa](https://github.com/honestica/typeguard/commit/4bc87fae05396e79e3eda1730ec02f20770d2940))
+* **github:** add a new guard to check package.json library usage and access ([95d5f92](https://github.com/honestica/typeguard/commit/95d5f92a0777ad86b17214b768465e0c2c935165))
+* **github:** change protected branch master to main ([c181c91](https://github.com/honestica/typeguard/commit/c181c91d3baa4f9bad4be2f1f48ba658b54489be))
+
+
+### docs
+
+* **README:** add installation step ([48c0c0f](https://github.com/honestica/typeguard/commit/48c0c0f72bcd7e88ec48765dd6abdcac09669c22))
+
+
+### feat
+
+* **FHIRSDK-1:** Modified license. ([b2ac47f](https://github.com/honestica/typeguard/commit/b2ac47fcc286626b7ab9a0df1075546667410fca))
+
+
+### fix
+
+* **fixme:** better prototype typing + light formatting ([75d5643](https://github.com/honestica/typeguard/commit/75d5643f6812b74e5e7da468e9856eadabff54fa))
+* **github:** yml indentation ([031c405](https://github.com/honestica/typeguard/commit/031c4054de53998a74339aa6b63c2124442de1fa))
+* **github:** yml indentation ([22e63e3](https://github.com/honestica/typeguard/commit/22e63e368c77b2ae735ee01d736958093a85ab46))
+* **github:** yml indentation ([0e9f3a7](https://github.com/honestica/typeguard/commit/0e9f3a7ba1e8f84bdf4b3300f5416f9b3b9a2571))
+* **github:** yml indentation ([286d416](https://github.com/honestica/typeguard/commit/286d41627f10fac9f6aac0b1f52d6dffa2c070b8))
+
 # [1.0.0-alpha.4](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-06-23)
 
 
