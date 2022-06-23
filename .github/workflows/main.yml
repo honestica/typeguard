@@ -151,8 +151,6 @@ jobs:
               with:
                   name: lib
                   path: lib
-            - name: Verify
-              run: echo $GITHUB_TOKEN && echo $NPM_TOKEN_PUBLISH_AUTOMATION
             - name: Semantic release
               run: npx semantic-release
               env:
