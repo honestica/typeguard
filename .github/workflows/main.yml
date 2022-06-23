@@ -152,9 +152,9 @@ jobs:
                   name: lib
                   path: lib
             - name: Verify
-              run: echo $GITHUB_TOKEN && echo $NPM_TOKEN
+              run: echo $GITHUB_TOKEN && echo $NPM_TOKEN_PUBLISH_AUTOMATION
             - name: Semantic release
               run: npx semantic-release
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN_PUBLISH_AUTOMATION }}
