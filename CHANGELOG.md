@@ -1,3 +1,10 @@
+# [1.0.0-alpha.2](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2022-06-23)
+
+
+### ci
+
+* delete verify step ([23f0f71](https://github.com/honestica/typeguard/commit/23f0f7141b4622439395af3a2b3ac734714412cc))
+
 # 1.0.0-alpha.1 (2022-06-23)
 
 
