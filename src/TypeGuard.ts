@@ -144,7 +144,7 @@ class TypeGuard
 			return false;
 		}
 
-		// eslint-disable-next-line unicorn/no-array-callback-reference -- please replace
+		// eslint-disable-next-line unicorn/no-array-callback-reference -- Intended purpose
 		if (constraints.itemGuard !== undefined && !value.every(constraints.itemGuard))
 		{
 			return false;
@@ -188,7 +188,8 @@ class TypeGuard
 	* @param {unknown} value the value
 	* @return {boolean} a boolean
 	*/
-	public static IsFunction(value: unknown): value is (argument: unknown) => void
+	// eslint-disable-next-line @typescript-eslint/ban-types -- Allow proper function inference
+	public static IsFunction(value: unknown): value is Function
 	{
 		return typeof value === "function";
 	}
@@ -202,7 +203,8 @@ class TypeGuard
 	* @param {unknown} value the value
 	* @return {boolean} a boolean
 	*/
-	public static IsCallable(value: unknown): value is (argument: unknown) => void
+	// eslint-disable-next-line @typescript-eslint/ban-types -- Allow proper function inference
+	public static IsCallable(value: unknown): value is Function
 	{
 		return typeof value === "function" && value.prototype === undefined;
 	}

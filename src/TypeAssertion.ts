@@ -153,7 +153,7 @@ class TypeAssertion
 			throw new Error("value is an array, but it doesn't have enough items");
 		}
 
-		// eslint-disable-next-line unicorn/no-array-callback-reference -- useless
+		// eslint-disable-next-line unicorn/no-array-callback-reference -- Intended purpose
 		if (constraints.itemGuard !== undefined && !value.every(constraints.itemGuard))
 		{
 			throw new Error("value is an array, but some items are invalid");
@@ -237,7 +237,8 @@ class TypeAssertion
 	* @throws {Error} if the value is not a function
 	* @return {void} nothing
 	*/
-	public static IsFunction(value: unknown): asserts value is (argument: unknown) => void
+	// eslint-disable-next-line @typescript-eslint/ban-types -- Allow proper function inference
+	public static IsFunction(value: unknown): asserts value is Function
 	{
 		if (!TypeGuard.IsFunction(value))
 		{
@@ -255,7 +256,8 @@ class TypeAssertion
 	* @throws {Error} if the value is not callable
 	* @return {void} nothing
 	*/
-	public static IsCallable(value: unknown): asserts value is (argument: unknown) => void
+	// eslint-disable-next-line @typescript-eslint/ban-types -- Allow proper function inference
+	public static IsCallable(value: unknown): asserts value is Function
 	{
 		if (!TypeGuard.IsCallable(value))
 		{
