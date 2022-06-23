@@ -66,6 +66,7 @@ module.exports = {
 		/**
 		* eslint plugin unicorn
 		*/
+		"unicorn/better-regex": "off",
 		"unicorn/filename-case": [
 			"error",
 			{
@@ -75,8 +76,14 @@ module.exports = {
 				},
 			},
 		],
-		"unicorn/prevent-abbreviations": "off",
+		"unicorn/no-array-for-each": "off",
+		"unicorn/no-array-reduce": "off",
 		"unicorn/no-for-loop": "off",
+		"unicorn/no-hex-escape": "off",
+		"unicorn/no-static-only-class": "off",
+		"unicorn/no-useless-undefined": "off",
+		"unicorn/prevent-abbreviations": "off",
+		"unicorn/relative-url-style": ["error", "always"],
 
 		/**
 		* eslint plugin comments
