@@ -1,6 +1,6 @@
 {
 	"name": "@honestica/ts-predicate",
-	"version": "0.0.0-dev",
+	"version": "1.0.0-alpha.1",
 	"description": "TypeScript predicates and assertions library",
 	"author": "Benjamin Blum <vuk.kulvar+github@gmail.com>",
 	"contributors": [
