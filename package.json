@@ -1,5 +1,5 @@
 {
-	"name": "@honestica/ts-predicate",
+	"name": "ts-predicate",
 	"version": "1.0.0-alpha.2",
 	"description": "TypeScript predicates and assertions library",
 	"author": "Benjamin Blum <vuk.kulvar+github@gmail.com>",
@@ -73,7 +73,7 @@
 		"eslint-plugin-unicorn": "^42.0.0",
 		"eslint-plugin-unused-imports": "^2.0.0",
 		"husky": "^8.0.0",
-		"inquirer": "^9.0.0",
+		"inquirer": "^8.2.4",
 		"lint-staged": "^13.0.1",
 		"mocha": "^10.0.0",
 		"mochawesome": "^7.1.3",
