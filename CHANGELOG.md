@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2022-06-23)
+
+
+### chore
+
+* update vscode settings ([65918ec](https://github.com/honestica/typeguard/commit/65918ec51765d6d5ef83b72bd5fdbd572cbbe4d0))
+
 # [1.0.0-alpha.3](https://github.com/honestica/typeguard/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2022-06-23)
 
 
