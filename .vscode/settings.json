@@ -30,6 +30,7 @@
 		"javascript",
 		"typescript"
 	],
+	"markdownlint.ignore": ["CHANGELOG.md", "LICENSE", "**/node_modules/**"],
 	// Language formatting
 	"[markdown]": {
 		"editor.wordWrap": "off",
