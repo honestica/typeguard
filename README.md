@@ -10,12 +10,12 @@
 
 </div>
 
-## Installation
+## Getting started
 
 ```bash
-yarn add -D ts-predicate
+yarn add ts-predicate
 # or
-npm install --save-dev ts-predicate
+npm install ts-predicate
 ```
 
 ## Documentation
