@@ -2,9 +2,9 @@
 
 <div align="center">
 
-![ci workflow](https://github.com/honestica/typeguard/actions/workflows/main.yml/badge.svg)
-![NPM](https://img.shields.io/npm/l/ts-predicate)
-![npm](https://img.shields.io/npm/v/ts-predicate)
+[![ci workflow](https://github.com/honestica/typeguard/actions/workflows/main.yml/badge.svg)](https://github.com/honestica/typeguard/actions)
+[![NPM](https://img.shields.io/npm/l/ts-predicate)](https://github.com/honestica/typeguard/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/ts-predicate)](https://www.npmjs.com/package/ts-predicate)
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
