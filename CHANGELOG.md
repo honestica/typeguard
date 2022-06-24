@@ -1,3 +1,17 @@
+## [1.0.2](https://github.com/honestica/typeguard/compare/v1.0.1...v1.0.2) (2022-06-24)
+
+
+### chore
+
+* **package.json:** add typescript as a peerDependency ([30d0e09](https://github.com/honestica/typeguard/commit/30d0e0971bd6532ace3570c1172255152d87e558))
+* **yarn.lock:** update yarn.lock to reflect peerDependency adjustment ([0a0fcfa](https://github.com/honestica/typeguard/commit/0a0fcfa24fe7f06a7cf09c2dea5e5cbd5b4f18bb))
+
+
+### docs
+
+* **readme:** add links to badges ([e47fa63](https://github.com/honestica/typeguard/commit/e47fa6360e791a0a609baa4e3cfba0cee1fdaff2))
+* **readme:** update getting started by fixing commands ([6659d57](https://github.com/honestica/typeguard/commit/6659d572a98bc86fabdfe7940a1b95fb7825da8c))
+
 ## [1.0.1](https://github.com/honestica/typeguard/compare/v1.0.0...v1.0.1) (2022-06-23)
 
 
