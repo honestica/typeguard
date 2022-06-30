@@ -19,6 +19,8 @@ jobs:
                   cache: "yarn"
             - name: Install dependencies
               run: yarn install --immutable
+            - name: Check package.json library usage
+              run: yarn packagejson:check
             - name: Spell checking with Cspell
               run: yarn cspell:ci
             - name: Lint codebase with Eslint

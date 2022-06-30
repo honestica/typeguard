@@ -17,12 +17,12 @@
 		"access": "public",
 		"registry": " https://registry.npmjs.org"
 	},
-	"main": "./lib/cjs/index.cjs",
+	"type": "module",
 	"exports": {
 		".": {
 			"types": "./lib/types/index.d.ts",
 			"require": "./lib/cjs/index.cjs",
-			"default": "./lib/cjs/index.cjs"
+			"import": "./lib/esm/index.js"
 		}
 	},
 	"files": [
@@ -30,8 +30,8 @@
 	],
 	"types": "./lib/types/index.d.ts",
 	"scripts": {
-		"build": "yarn clean && yarn build:cjs",
-		"build:cjs": "tsc -b tsconfig.build.cjs.json",
+		"build": "yarn clean && yarn build:cjs && yarn build:esm",
+		"build:cjs": "tsc -b tsconfig.build.cjs.json && ./scripts/convert-to-cjs.sh",
 		"build:esm": "tsc -b tsconfig.build.esm.json",
 		"clean": "rm -rfv reports coverage build dist lib .eslintcache",
 		"commit": "cz",
@@ -43,6 +43,7 @@
 		"postinstall": "husky install",
 		"prepack": "pinst --disable",
 		"postpack": "pinst --enable",
+		"packagejson:check": "package-check",
 		"packagejson:format": "prettier-package-json --write ./package.json",
 		"test": "yarn test:unit",
 		"test:mutation": "stryker run",
@@ -56,6 +57,7 @@
 		"@commitlint/cli": "^17.0.2",
 		"@commitlint/config-conventional": "^17.0.2",
 		"@commitlint/cz-commitlint": "^17.0.0",
+		"@skypack/package-check": "^0.2.2",
 		"@stryker-mutator/core": "^6.0.2",
 		"@stryker-mutator/mocha-runner": "^6.0.2",
 		"@stryker-mutator/typescript-checker": "^6.0.2",
