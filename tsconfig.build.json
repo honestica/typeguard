@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"declaration": true,
-		"declarationMap": true,
+		"declarationMap": false,
 		"removeComments": false,
 		"sourceMap": false,
 		"noEmit": false,
