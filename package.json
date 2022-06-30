@@ -21,7 +21,7 @@
 	"exports": {
 		".": {
 			"types": "./lib/types/index.d.ts",
-			"require": "./lib/cjs/index.js",
+			"require": "./lib/cjs/index.cjs",
 			"import": "./lib/esm/index.js"
 		}
 	},
@@ -31,7 +31,7 @@
 	"types": "./lib/types/index.d.ts",
 	"scripts": {
 		"build": "yarn clean && yarn build:cjs && yarn build:esm",
-		"build:cjs": "tsc -b tsconfig.build.cjs.json",
+		"build:cjs": "tsc -b tsconfig.build.cjs.json && ./scripts/convert-to-cjs.sh",
 		"build:esm": "tsc -b tsconfig.build.esm.json",
 		"clean": "rm -rfv reports coverage build dist lib .eslintcache",
 		"commit": "cz",
