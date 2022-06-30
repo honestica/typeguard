@@ -4,8 +4,8 @@
 		"outDir": "./lib/cjs",
 		"target": "ES2015",
 		"module": "CommonJS",
-		"declarationDir": "./lib/types",
-		"esModuleInterop": true
+		"declaration": false,
+		"declarationMap": false
 	},
 	"include": ["./src/**/*"]
 }
