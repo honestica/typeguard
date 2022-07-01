@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo ""
 echo "Converting .js files to .cjs"
 echo ""
