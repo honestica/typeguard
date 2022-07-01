@@ -31,7 +31,7 @@
 	"types": "./lib/types/index.d.ts",
 	"scripts": {
 		"build": "yarn clean && yarn build:cjs && yarn build:esm",
-		"build:cjs": "tsc -b tsconfig.build.cjs.json && ./scripts/convert-to-cjs.sh",
+		"build:cjs": "tsc -b tsconfig.build.cjs.json && ./scripts/convert_to_cjs.sh lib",
 		"build:esm": "tsc -b tsconfig.build.esm.json",
 		"clean": "rm -rfv reports coverage build dist lib .eslintcache",
 		"commit": "cz",
