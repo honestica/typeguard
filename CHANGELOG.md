@@ -1,3 +1,17 @@
+## [1.0.3](https://github.com/honestica/typeguard/compare/v1.0.2...v1.0.3) (2022-07-01)
+
+
+### build
+
+* **cjs:** adapt script for converting js to cjs files to run in multiple platform ([7247b08](https://github.com/honestica/typeguard/commit/7247b08a55ffb4db0a2a697c3dd2b3249156c9c0))
+* **convert_to_cjs.sh:** add shebang ([023d5b2](https://github.com/honestica/typeguard/commit/023d5b2e9d17452386cf955f7eafc91f654890cb))
+
+
+### chore
+
+* convert cjs folder extension files into cjs ([755fafb](https://github.com/honestica/typeguard/commit/755fafbae1970b97eec878e1cc734048d67e7076))
+* only build to CJS ([13ed043](https://github.com/honestica/typeguard/commit/13ed04374a1ed0c92de687a07b7b9109aacee27e))
+
 ## [1.0.2](https://github.com/honestica/typeguard/compare/v1.0.1...v1.0.2) (2022-06-24)
 
 
