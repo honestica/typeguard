@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/honestica/typeguard/compare/v1.0.3...v1.0.4) (2022-07-19)
+
+
+### fix
+
+* **package.json:** delete TypeScript peer dependency ([ce88fed](https://github.com/honestica/typeguard/commit/ce88fed8d8d70f3c4487ff1f19341f361e751372))
+
 ## [1.0.3](https://github.com/honestica/typeguard/compare/v1.0.2...v1.0.3) (2022-07-01)
 
 
