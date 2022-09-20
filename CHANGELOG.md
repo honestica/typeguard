@@ -1,3 +1,17 @@
+## [1.0.5](https://github.com/honestica/typeguard/compare/v1.0.4...v1.0.5) (2022-09-20)
+
+
+### build
+
+* **convert_to_cjs.sh:** handle await import ([1d5c4a2](https://github.com/honestica/typeguard/commit/1d5c4a2c0d003e41411dadddf0017971adcebb97))
+
+
+### chore
+
+* **.nvmrc:** upgrade node to version 18 ([6d2c565](https://github.com/honestica/typeguard/commit/6d2c565b3a144b98582a06f44ddf73559fe387d3))
+* **deps:** upgrade all dependencies ([d6d7c22](https://github.com/honestica/typeguard/commit/d6d7c226206acdc81c1e5316fb8664b22ebec245))
+* **yarn.lock:** update dependencies ([5cc49bd](https://github.com/honestica/typeguard/commit/5cc49bdaaac734f431e72396d79e65cb4d9cccf4))
+
 ## [1.0.4](https://github.com/honestica/typeguard/compare/v1.0.3...v1.0.4) (2022-07-19)
 
 
