@@ -27,9 +27,9 @@ for path in $files; do
     echo "Converting $path"
 
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        sed -r -i'' "s/(require ?[^\"]+\"([^\"]+))\.js/\1.cjs/" "$path"
+        sed -r -i'' "s/(require ?[^\"\']+[\"\']([^\"\']+))\.js(\'|\")/\1.cjs\3/" "$path"
     elif [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -r -i '' "s/(require ?[^\"]+\"([^\"]+))\.js/\1.cjs/" "$path"
+        sed -r -i '' "s/(require ?[^\"\']+[\"\']([^\"\']+))\.js(\'|\")/\1.cjs\3/" "$path"
     fi
 
 	mv "$path" "${path/%.js/.cjs}"
