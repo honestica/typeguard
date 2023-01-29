@@ -66,6 +66,7 @@ module.exports = {
 		/**
 		* eslint plugin unicorn
 		*/
+		"unicorn/switch-case-braces": "off",
 		"unicorn/better-regex": "off",
 		"unicorn/filename-case": [
 			"error",
@@ -278,64 +279,7 @@ module.exports = {
 				},
 			},
 		],
-		"@typescript-eslint/member-ordering": [
-			"error",
-			{
-				default: {
-					memberTypes: [
-						// Signature
-						"signature",
-						// Field
-						"public-abstract-field",
-						"protected-abstract-field",
-						"private-abstract-field",
-						"public-static-field",
-						"protected-static-field",
-						"private-static-field",
-						"public-instance-field",
-						"protected-instance-field",
-						"private-instance-field",
-						"public-decorated-field",
-						"protected-decorated-field",
-						"private-decorated-field",
-						"field",
-						// Constructor
-						"public-constructor",
-						"protected-constructor",
-						"private-constructor",
-						"constructor",
-						// Method
-						"public-abstract-method",
-						"protected-abstract-method",
-						"private-abstract-method",
-						"public-static-method",
-						"protected-static-method",
-						"private-static-method",
-						"public-instance-method",
-						"protected-instance-method",
-						"private-instance-method",
-						"public-decorated-method",
-						"protected-decorated-method",
-						"private-decorated-method",
-						"method",
-						// Get & Set
-						["public-abstract-get", "public-abstract-set"],
-						["protected-abstract-get", "protected-abstract-set"],
-						["private-abstract-get", "private-abstract-set"],
-						["public-static-get", "public-static-set"],
-						["protected-static-get", "protected-static-set"],
-						["private-static-get", "private-static-set"],
-						["public-instance-get", "public-instance-set"],
-						["protected-instance-get", "protected-instance-set"],
-						["private-instance-get", "private-instance-set"],
-						["public-decorated-get", "public-decorated-set"],
-						["protected-decorated-get", "protected-decorated-set"],
-						["private-decorated-get", "private-decorated-set"],
-						["get", "set"],
-					],
-				},
-			},
-		],
+		"@typescript-eslint/member-ordering": ["error"],
 		"@typescript-eslint/method-signature-style": ["error", "property"],
 		"@typescript-eslint/naming-convention": "off",
 		"@typescript-eslint/no-base-to-string": "error",
