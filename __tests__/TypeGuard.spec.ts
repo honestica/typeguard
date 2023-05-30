@@ -260,6 +260,40 @@ describe(
 						}
 					}
 				);
+
+				it(
+					"should return true when given a string with a length greater or equal to the minLength constraint",
+					(): void =>
+					{
+						expect(TypeGuard.IsString("Allan", { minLength: 2 })).to.be.true;
+						expect(TypeGuard.IsString("Allan", { minLength: 5 })).to.be.true;
+					}
+				);
+
+				it(
+					"should return false when given an array with a length below the minLength constraint",
+					(): void =>
+					{
+						expect(TypeGuard.IsString("Allan", { minLength: 6 })).to.be.false;
+					}
+				);
+
+				it(
+					"should return true when given a string with a length shorter or equal to the maxLength constraint",
+					(): void =>
+					{
+						expect(TypeGuard.IsString("Allan", { maxLength: 5 })).to.be.true;
+						expect(TypeGuard.IsString("Allan", { maxLength: 10 })).to.be.true;
+					}
+				);
+
+				it(
+					"should return false when given a string with a length above the maxLength constraint",
+					(): void =>
+					{
+						expect(TypeGuard.IsString("Allan", { maxLength: 2 })).to.be.false;
+					}
+				);
 			}
 		);
 

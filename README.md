@@ -70,10 +70,23 @@ Asserts that the value is a number, but not NaN nor +/-Infinity.
 ### IsString
 
 ```ts
-static IsString(value: unknown): void
+static IsString(value: unknown, constraints?: StringConstraints): void
 ```
 
 Asserts that the value is a string.
+
+The optional parameter `constraints` accept an object described by the following interface.
+
+```ts
+interface StringConstraints
+{
+	minLength?: number;
+	maxLength?: number;
+}
+```
+
+If `minLength` is provided, it'll asserts that the value has at least this length.<br />
+If `maxLength` is provided, it'll asserts that the value has at most this length.
 
 ### IsPopulatedString
 

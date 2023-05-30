@@ -298,6 +298,72 @@ describe(
 						}
 					}
 				);
+
+				it(
+					"should return when given a string with a length greater or equal to the minLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 1 });
+							}
+						).to.not.throw();
+
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 5 });
+							}
+						).to.not.throw();
+					}
+				);
+
+				it(
+					"should throw when given a string with a length shorter than minLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 6 });
+							}
+						).to.throw();
+					}
+				);
+
+				it(
+					"should return when given a string with a length shorter or equal to the maxLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 10 });
+							}
+						).to.not.throw();
+
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 5 });
+							}
+						).to.not.throw();
+					}
+				);
+
+				it(
+					"should throw when given a string with a length greater than maxLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 4 });
+							}
+						).to.throw();
+					}
+				);
 			}
 		);
 
