@@ -368,7 +368,7 @@ describe(
 		);
 
 		describe(
-			"IsPopulatedString",
+			"IsFilledString",
 			(): void =>
 			{
 				it(
@@ -383,7 +383,7 @@ describe(
 							expect(
 								(): void =>
 								{
-									TypeAssertion.IsPopulatedString(ITEM);
+									TypeAssertion.IsFilledString(ITEM);
 								}
 							).to.not.throw();
 						}
@@ -401,7 +401,7 @@ describe(
 							expect(
 								(): void =>
 								{
-									TypeAssertion.IsPopulatedString(ITEM);
+									TypeAssertion.IsFilledString(ITEM);
 								}
 							).to.throw(/^value /);
 						}

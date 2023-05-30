@@ -88,10 +88,10 @@ interface StringConstraints
 If `minLength` is provided, it'll asserts that the value has at least this length.<br />
 If `maxLength` is provided, it'll asserts that the value has at most this length.
 
-### IsPopulatedString
+### IsFilledString
 
 ```ts
-static IsPopulatedString(value: unknown): void
+static IsFilledString(value: unknown): void
 ```
 
 Like `IsString`, but asserts that the string is never empty too.
@@ -232,10 +232,10 @@ static IsString(value: unknown): boolean
 
 Narrow down the value to being a string.
 
-### IsPopulatedString
+### IsFilledString
 
 ```ts
-static IsPopulatedString(value: unknown): void
+static IsFilledString(value: unknown): void
 ```
 
 Asserts that the value is a non empty string.

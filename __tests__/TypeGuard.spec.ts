@@ -298,7 +298,7 @@ describe(
 		);
 
 		describe(
-			"IsPopulatedString",
+			"IsFilledString",
 			(): void =>
 			{
 				it(
@@ -310,7 +310,7 @@ describe(
 
 						for (const ITEM of VALUES)
 						{
-							expect(TypeGuard.IsPopulatedString(ITEM)).to.be.true;
+							expect(TypeGuard.IsFilledString(ITEM)).to.be.true;
 						}
 					}
 				);
@@ -323,7 +323,7 @@ describe(
 
 						for (const ITEM of VALUES)
 						{
-							expect(TypeGuard.IsPopulatedString(ITEM)).to.be.false;
+							expect(TypeGuard.IsFilledString(ITEM)).to.be.false;
 						}
 					}
 				);

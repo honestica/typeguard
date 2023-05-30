@@ -139,7 +139,7 @@ class TypeGuard
 	}
 
 	/**
-	* IsPopulatedString
+	* IsFilledString
 	*
 	* @description Predicate that check if a value is a non empty string.
 	* @public
@@ -147,7 +147,7 @@ class TypeGuard
 	* @param {unknown} value the value
 	* @return {boolean} a boolean
 	*/
-	public static IsPopulatedString(
+	public static IsFilledString(
 		value: unknown,
 	): value is string
 	{

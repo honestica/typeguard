@@ -140,16 +140,16 @@ class TypeAssertion
 	}
 
 	/**
-	* IsPopulatedString
+	* IsFilledString
 	*
-	* @description Assertion that check if a value is a string.
+	* @description Assertion that check if a value is non empty string.
 	* @public
 	* @static
 	* @param {unknown} value the value
 	* @throws {Error} if the value is not a string
 	* @return {void} nothing
 	*/
-	public static IsPopulatedString(value: unknown): asserts value is string
+	public static IsFilledString(value: unknown): asserts value is string
 	{
 		if (!TypeGuard.IsString(value))
 		{
