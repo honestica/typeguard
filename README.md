@@ -75,6 +75,14 @@ static IsString(value: unknown): void
 
 Asserts that the value is a string.
 
+### IsPopulatedString
+
+```ts
+static IsPopulatedString(value: unknown): void
+```
+
+Like `IsString`, but asserts that the string is never empty too.
+
 ### IsArray
 
 ```ts
@@ -210,6 +218,14 @@ static IsString(value: unknown): boolean
 ```
 
 Narrow down the value to being a string.
+
+### IsPopulatedString
+
+```ts
+static IsPopulatedString(value: unknown): void
+```
+
+Asserts that the value is a non empty string.
 
 ### IsArray
 

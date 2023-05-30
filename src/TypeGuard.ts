@@ -116,6 +116,22 @@ class TypeGuard
 	}
 
 	/**
+	* IsPopulatedString
+	*
+	* @description Predicate that check if a value is a non empty string.
+	* @public
+	* @static
+	* @param {unknown} value the value
+	* @return {boolean} a boolean
+	*/
+	public static IsPopulatedString(
+		value: unknown,
+	): value is string
+	{
+		return TypeGuard.IsString(value) && value !== "";
+	}
+
+	/**
 	* IsString
 	*
 	* @description Predicate that check if a value is a string.

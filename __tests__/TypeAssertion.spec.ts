@@ -302,6 +302,49 @@ describe(
 		);
 
 		describe(
+			"IsPopulatedString",
+			(): void =>
+			{
+				it(
+					"should return when given a non empty string",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = getValues(BaseType.STRING)
+							.filter((value) => { return value !== ""; });
+
+						for (const ITEM of VALUES)
+						{
+							expect(
+								(): void =>
+								{
+									TypeAssertion.IsPopulatedString(ITEM);
+								}
+							).to.not.throw();
+						}
+					}
+				);
+
+				it(
+					"should throw when given anything else",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = [...getInvertedValues(BaseType.STRING), ""];
+
+						for (const ITEM of VALUES)
+						{
+							expect(
+								(): void =>
+								{
+									TypeAssertion.IsPopulatedString(ITEM);
+								}
+							).to.throw(/^value /);
+						}
+					}
+				);
+			}
+		);
+
+		describe(
 			"IsArray",
 			(): void =>
 			{
@@ -434,7 +477,7 @@ describe(
 				);
 
 				it(
-					"should throw when given a populated array",
+					"should return when given a populated array",
 					(): void =>
 					{
 						expect(

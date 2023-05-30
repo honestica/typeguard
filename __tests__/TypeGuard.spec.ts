@@ -264,6 +264,39 @@ describe(
 		);
 
 		describe(
+			"IsPopulatedString",
+			(): void =>
+			{
+				it(
+					"should return true when given a populated string",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = getValues(BaseType.STRING)
+							.filter((value) => { return value !== ""; });
+
+						for (const ITEM of VALUES)
+						{
+							expect(TypeGuard.IsPopulatedString(ITEM)).to.be.true;
+						}
+					}
+				);
+
+				it(
+					"should return false when given anything else",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = [...getInvertedValues(BaseType.STRING), ""];
+
+						for (const ITEM of VALUES)
+						{
+							expect(TypeGuard.IsPopulatedString(ITEM)).to.be.false;
+						}
+					}
+				);
+			}
+		);
+
+		describe(
 			"IsArray",
 			(): void =>
 			{
