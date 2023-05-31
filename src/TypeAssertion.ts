@@ -130,12 +130,12 @@ class TypeAssertion
 
 		if (constraints.minLength !== undefined && value.length < constraints.minLength)
 		{
-			throw new Error(`value is shorter than minimum length ${constraints.minLength.toString()}`);
+			throw new Error(`value length is shorter than minimum length ${constraints.minLength.toString()}`);
 		}
 
 		if (constraints.maxLength !== undefined && value.length > constraints.maxLength)
 		{
-			throw new Error(`value is longer than maximum length ${constraints.maxLength.toString()}`);
+			throw new Error(`value length is greater than maximum length ${constraints.maxLength.toString()}`);
 		}
 	}
 

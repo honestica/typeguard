@@ -328,7 +328,7 @@ describe(
 							{
 								TypeAssertion.IsString("Allan", { minLength: 6 });
 							}
-						).to.throw();
+						).to.throw("value length is shorter than minimum length 6");
 					}
 				);
 
@@ -361,7 +361,7 @@ describe(
 							{
 								TypeAssertion.IsString("Allan", { maxLength: 4 });
 							}
-						).to.throw();
+						).to.throw("value length is greater than maximum length 4");
 					}
 				);
 			}
