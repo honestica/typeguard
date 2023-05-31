@@ -1,4 +1,4 @@
-import type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray } from "./Types.js";
+import type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray, StringConstraints } from "./Types.js";
 
 /**
 * TypeGuard
@@ -108,11 +108,55 @@ class TypeGuard
 	* @public
 	* @static
 	* @param {unknown} value the value
+	* @param {object} [constraints] some additional check
+	* @param {number} [constraints.minLength] minimal length
+	* @param {number} [constraints.maxLength] maximum length
 	* @return {boolean} a boolean
 	*/
-	public static IsString(value: unknown): value is string
+	public static IsString(value: unknown, constraints?: StringConstraints): value is string
 	{
-		return typeof value === "string";
+		if (typeof value !== "string")
+		{
+			return false;
+		}
+
+		if (constraints === undefined)
+		{
+			return true;
+		}
+
+		if (constraints.minLength !== undefined && value.length < constraints.minLength)
+		{
+			return false;
+		}
+
+		if (constraints.maxLength !== undefined && value.length > constraints.maxLength)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	* IsFilledString
+	*
+	* @description Predicate that check if a value is a non empty string.
+	* @public
+	* @static
+	* @param {unknown} value the value
+	* @return {boolean} a boolean
+	*/
+	public static IsFilledString(
+		value: unknown,
+	): value is string
+	{
+		return TypeGuard.IsString(value, {
+			/**
+			 *
+			 */
+			minLength: 1
+		});
 	}
 
 	/**

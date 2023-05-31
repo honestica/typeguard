@@ -32,4 +32,19 @@ interface ArrayConstraints<Type>
 	itemGuard?: (item: unknown) => item is Type;
 }
 
-export type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray };
+/**
+ * StringConstraints interface
+ */
+interface StringConstraints
+{
+	/**
+	 * minLength
+	 */
+	minLength?: number;
+	/**
+	 * maxLength
+	 */
+	maxLength?: number;
+}
+
+export type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray, StringConstraints };

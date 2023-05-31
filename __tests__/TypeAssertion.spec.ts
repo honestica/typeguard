@@ -298,6 +298,115 @@ describe(
 						}
 					}
 				);
+
+				it(
+					"should return when given a string with a length greater or equal to the minLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 1 });
+							}
+						).to.not.throw();
+
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 5 });
+							}
+						).to.not.throw();
+					}
+				);
+
+				it(
+					"should throw when given a string with a length shorter than minLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { minLength: 6 });
+							}
+						).to.throw("value length is shorter than minimum length 6");
+					}
+				);
+
+				it(
+					"should return when given a string with a length shorter or equal to the maxLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 10 });
+							}
+						).to.not.throw();
+
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 5 });
+							}
+						).to.not.throw();
+					}
+				);
+
+				it(
+					"should throw when given a string with a length greater than maxLength constraint",
+					(): void =>
+					{
+						expect(
+							(): void =>
+							{
+								TypeAssertion.IsString("Allan", { maxLength: 4 });
+							}
+						).to.throw("value length is greater than maximum length 4");
+					}
+				);
+			}
+		);
+
+		describe(
+			"IsFilledString",
+			(): void =>
+			{
+				it(
+					"should return when given a non empty string",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = getValues(BaseType.STRING)
+							.filter((value) => { return value !== ""; });
+
+						for (const ITEM of VALUES)
+						{
+							expect(
+								(): void =>
+								{
+									TypeAssertion.IsFilledString(ITEM);
+								}
+							).to.not.throw();
+						}
+					}
+				);
+
+				it(
+					"should throw when given anything else",
+					(): void =>
+					{
+						const VALUES: Array<unknown> = [...getInvertedValues(BaseType.STRING), ""];
+
+						for (const ITEM of VALUES)
+						{
+							expect(
+								(): void =>
+								{
+									TypeAssertion.IsFilledString(ITEM);
+								}
+							).to.throw(/^value /);
+						}
+					}
+				);
 			}
 		);
 
@@ -434,7 +543,7 @@ describe(
 				);
 
 				it(
-					"should throw when given a populated array",
+					"should return when given a populated array",
 					(): void =>
 					{
 						expect(

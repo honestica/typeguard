@@ -1,6 +1,6 @@
 import { TypeGuard } from "./TypeGuard.js";
 
-import type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray } from "./Types.js";
+import type { ArrayConstraints, ObjectWithNullableProperty, ObjectWithProperty, PopulatedArray, StringConstraints } from "./Types.js";
 
 /**
 * TypeAssertion
@@ -110,15 +110,53 @@ class TypeAssertion
 	* @public
 	* @static
 	* @param {unknown} value the value
+	* @param {object} [constraints] some additional check
+	* @param {number} [constraints.minLength] minimal length
+	* @param {number} [constraints.maxLength] maximum length
 	* @throws {Error} if the value is not a string
 	* @return {void} nothing
 	*/
-	public static IsString(value: unknown): asserts value is string
+	public static IsString(value: unknown, constraints?: StringConstraints): asserts value is string
 	{
 		if (!TypeGuard.IsString(value))
 		{
 			throw new Error("value is not a string");
 		}
+
+		if (constraints === undefined)
+		{
+			return;
+		}
+
+		if (constraints.minLength !== undefined && value.length < constraints.minLength)
+		{
+			throw new Error(`value length is shorter than minimum length ${constraints.minLength.toString()}`);
+		}
+
+		if (constraints.maxLength !== undefined && value.length > constraints.maxLength)
+		{
+			throw new Error(`value length is greater than maximum length ${constraints.maxLength.toString()}`);
+		}
+	}
+
+	/**
+	* IsFilledString
+	*
+	* @description Assertion that check if a value is non empty string.
+	* @public
+	* @static
+	* @param {unknown} value the value
+	* @throws {Error} if the value is not a string
+	* @return {void} nothing
+	*/
+	public static IsFilledString(value: unknown): asserts value is string
+	{
+		TypeAssertion.IsString(value, {
+			/**
+			 *
+			 */
+			minLength: 1,
+		});
 	}
 
 	/**
