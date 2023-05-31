@@ -151,7 +151,12 @@ class TypeGuard
 		value: unknown,
 	): value is string
 	{
-		return TypeGuard.IsString(value) && value !== "";
+		return TypeGuard.IsString(value, {
+			/**
+			 *
+			 */
+			minLength: 1
+		});
 	}
 
 	/**

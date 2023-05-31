@@ -151,15 +151,12 @@ class TypeAssertion
 	*/
 	public static IsFilledString(value: unknown): asserts value is string
 	{
-		if (!TypeGuard.IsString(value))
-		{
-			throw new Error("value is not a string");
-		}
-
-		if (value === "")
-		{
-			throw new Error("value is an empty string");
-		}
+		TypeAssertion.IsString(value, {
+			/**
+			 *
+			 */
+			minLength: 1,
+		});
 	}
 
 	/**
