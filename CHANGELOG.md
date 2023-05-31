@@ -1,3 +1,20 @@
+# [1.1.0](https://github.com/honestica/typeguard/compare/v1.0.5...v1.1.0) (2023-05-31)
+
+
+### build
+
+* **deps:** bump http-cache-semantics from 4.1.0 to 4.1.1 ([#16](https://github.com/honestica/typeguard/issues/16)) ([6a01a17](https://github.com/honestica/typeguard/commit/6a01a17020a70562439b83ce796d69c99570634b))
+
+
+### chore
+
+* **deps:** upgrade all dependencies ([#15](https://github.com/honestica/typeguard/issues/15)) ([c411f79](https://github.com/honestica/typeguard/commit/c411f797467c5168f6c215e7c19bd47ef800da99))
+
+
+### feat
+
+* add StringConstraints ([#20](https://github.com/honestica/typeguard/issues/20)) ([c26a50c](https://github.com/honestica/typeguard/commit/c26a50c0cbe7e189a6433dab4fb276b56433096e))
+
 ## [1.0.5](https://github.com/honestica/typeguard/compare/v1.0.4...v1.0.5) (2022-09-20)
 
 
