@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/honestica/typeguard/compare/v1.1.0...v1.1.1) (2023-07-17)
+
+
+### build
+
+* **deps:** bump semver from 5.7.1 to 5.7.2 ([#21](https://github.com/honestica/typeguard/issues/21)) ([d1ed3d8](https://github.com/honestica/typeguard/commit/d1ed3d8de2ac71eaba98b43721c61f7f9c7b6e4f))
+
 # [1.1.0](https://github.com/honestica/typeguard/compare/v1.0.5...v1.1.0) (2023-05-31)
 
 
