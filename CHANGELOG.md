@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/honestica/typeguard/compare/v1.1.1...v1.1.2) (2023-07-19)
+
+
+### build
+
+* **deps:** bump word-wrap from 1.2.3 to 1.2.4 ([#22](https://github.com/honestica/typeguard/issues/22)) ([aa976a6](https://github.com/honestica/typeguard/commit/aa976a6a361f8cfd171c7fc33ea0c90af45f5715))
+
 ## [1.1.1](https://github.com/honestica/typeguard/compare/v1.1.0...v1.1.1) (2023-07-17)
 
 
