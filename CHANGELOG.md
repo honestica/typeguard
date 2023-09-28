@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/honestica/typeguard/compare/v1.1.2...v1.1.3) (2023-09-28)
+
+
+### build
+
+* **deps:** bump get-func-name from 2.0.0 to 2.0.2 ([#23](https://github.com/honestica/typeguard/issues/23)) ([fee1ab7](https://github.com/honestica/typeguard/commit/fee1ab7f9b419fc6bb5d5527102c65800ea4c44d))
+
 ## [1.1.2](https://github.com/honestica/typeguard/compare/v1.1.1...v1.1.2) (2023-07-19)
 
 
