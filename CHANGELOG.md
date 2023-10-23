@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/honestica/typeguard/compare/v1.1.3...v1.1.4) (2023-10-23)
+
+
+### build
+
+* **deps:** bump [@babel](https://github.com/babel)/traverse from 7.20.13 to 7.23.2 ([#25](https://github.com/honestica/typeguard/issues/25)) ([ce2ca07](https://github.com/honestica/typeguard/commit/ce2ca072d4c744955dbb191c97acfa78884bc359))
+
 ## [1.1.3](https://github.com/honestica/typeguard/compare/v1.1.2...v1.1.3) (2023-09-28)
 
 
